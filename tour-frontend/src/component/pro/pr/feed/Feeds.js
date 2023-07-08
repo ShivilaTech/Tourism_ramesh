@@ -15,12 +15,19 @@ import pic03 from '../../../pic/PalacesTelanagana.jpg';
 import pic04 from '../../../pic/WaterfallsTelangana.jpg';
 import pic05 from '../../../pic/ramuji.jpg';
 import pic06 from '../../../pic/templeTelanglana.jpg';
+import { useNavigate } from 'react-router-dom';
 
 const Feeds = () => {
-
+  const navigate = useNavigate();
+  useEffect(() => {
+    const user = localStorage.getItem('userId');
+    if (!user) {
+      navigate('/form');
+    }
+  }, [])
   return (
     <>
-      <div className={Styles.slidem} style={{position:'relative',zIndex:-1}}>
+      <div className={Styles.slidem} style={{ position: 'relative', zIndex: -1 }}>
         <Swiper
           slidesPerView={1}
           spaceBetween={30}
@@ -61,9 +68,9 @@ const Feeds = () => {
           <Ad />
         </div>
         <div className={Styles.mid}>
-         
-            <RecipeReviewCard  />
-        
+
+          <RecipeReviewCard />
+
         </div>
         <div className={Styles.right}>
           <Ad />

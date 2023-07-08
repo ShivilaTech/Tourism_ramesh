@@ -18,9 +18,9 @@ const Posts = ({ posts }) => {
       console.log(postId);
       const response = await axios.delete(`https://travel-cg48.onrender.com/user/post/delete/${postId}`);
       console.log(response.data);
-      if(response.data.status == true){
-      window.alert(response.data.message);
-      window.location.reload(); 
+      if (response.data.status == true) {
+        window.alert(response.data.message);
+        window.location.reload();
       }
     } catch (error) {
       console.error(error);
@@ -33,7 +33,7 @@ const Posts = ({ posts }) => {
       <div className="post-container">
         {posts.map((post) => (
           <div key={post._id} className="card">
-            <img src={`http://35.78.201.111:3008/posts/${post.postUrl}`} alt={post.caption} />
+            <img src={`https://travel-cg48.onrender.com/posts/${post.postUrl}`} alt={post.caption} />
             <h2>{post.caption}</h2>
             <button onClick={() => handleEditPost(post._id)}>Edit</button>
             <button onClick={() => handleDeletePost(post._id)}>Delete</button>

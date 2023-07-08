@@ -3,6 +3,16 @@ import React, { useContext, useEffect, useState } from 'react';
 // import ScrollCarouselCard from './ScrollCarouselCard';
 import { useSelector } from 'react-redux';
 import Slider from "react-slick";
+// import { useTranslation } from 'react-i18next';
+// import i18n from 'i18next';
+// import { initReactI18next } from 'react-i18next';
+
+// // Import translation files
+// import enTranslation from './locales/en.json';
+// import hiTranslation from './locales/hi.json';
+
+
+
 
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -134,6 +144,8 @@ import Musicpage from './music/Musicpage';
 import { FaFacebook, FaFacebookSquare, FaInstagramSquare, FaTwitterSquare, FaWhatsappSquare } from 'react-icons/fa';
 
 const Home = () => {
+  
+ 
    const images = [pic01,pic03,pic04,pic05,pic06,pic07,pic08]
    const settings = {
       dots: false,
@@ -304,8 +316,23 @@ useEffect(() => {
   setFilteredCards(filtered);
 }, [searchQuery]);
 
+// i18n.use(initReactI18next).init({
+//   resources: {
+//     en: { translation: enTranslation },
+//     hi: { translation: hiTranslation }
+//   },
+//   fallbackLng: 'en',
+//   interpolation: {
+//     escapeValue: false
+//   }
+// });
 
 
+// const { t } = useTranslation();
+
+//   const changeLanguage = (lng) => {
+//     i18n.changeLanguage(lng);
+//   };
 
 
 
@@ -358,6 +385,13 @@ useEffect(() => {
 
 
 
+{/* 
+<div>
+      <button onClick={() => changeLanguage('en')}>English</button>
+      <button onClick={() => changeLanguage('hi')}>Hindi</button>
+
+      <p>{t('hello')}</p>
+    </div> */}
 
 
 

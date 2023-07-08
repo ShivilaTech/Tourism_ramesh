@@ -60,7 +60,7 @@ const Jhharkhand = () => {
   <div className={Styles.text}><h1  >Adventure Tourism in Jharkhand .</h1></div>
 
   <div className={Styles.slidem}> 
-  <Swiper
+  <Swiper style={{position:'relative',zIndex:-1}}
         slidesPerView={1}
         spaceBetween={30}
         loop={true}

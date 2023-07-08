@@ -23,7 +23,7 @@ const Jammu = () => {
     <>
 
 <div className={Styles.slidem}> 
-      <Swiper
+      <Swiper style={{position:'relative',zIndex:-1}}
         slidesPerView={1}
         spaceBetween={30}
         loop={true}

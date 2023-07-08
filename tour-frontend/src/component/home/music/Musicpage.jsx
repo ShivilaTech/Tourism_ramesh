@@ -51,7 +51,7 @@ const Musicpage = () => {
     <>
       <div className="music-player">
         <button id='musicBtn' onClick={handlePlayPause}>
-          {isPlaying ? <GiSpeakerOff size={30} id='musicIcons' /> : <GiSpeaker size={30} id='musicIcons' />}
+          {!isPlaying ? <GiSpeakerOff size={30} id='musicIcons' /> : <GiSpeaker size={30} id='musicIcons' />}
         </button>
       </div>
       <audio ref={audioRef} src={mymusic} />

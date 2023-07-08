@@ -5,8 +5,8 @@ import { RiUpload2Line } from 'react-icons/ri';
 
 
 import { BsFillBagFill, BsHeartFill, BsCalendarDayFill } from 'react-icons/bs';
-import {GrUpdate} from 'react-icons/gr';
-import { MdSchool, MdAdd,MdHome,MdEdit,MdUpdate,MdDelete, MdLocationPin, MdCall,MdEmail } from 'react-icons/md';
+import { GrUpdate } from 'react-icons/gr';
+import { MdSchool, MdAdd, MdHome, MdEdit, MdUpdate, MdDelete, MdLocationPin, MdCall, MdEmail } from 'react-icons/md';
 
 const UserProfile = () => {
   const [isEditMode, setIsEditMode] = useState(false);
@@ -19,7 +19,7 @@ const UserProfile = () => {
   const [school, setSchool] = useState('');
   const [maritalStatus, setMaritalStatus] = useState('');
   const [mno, setMno] = useState('');
-  const [email,setEmail] =useState('');
+  const [email, setEmail] = useState('');
   const [dob, setDob] = useState('');
 
 
@@ -88,27 +88,27 @@ const UserProfile = () => {
 
 
 
-  
-    const profileData = {
-      name,
-      Pname,
-      bio,
-      work,
-      lives,
-      from,
-      school,
-      maritalStatus,
-      mno,
-      dob,
-      email,
-    };
-    localStorage.setItem('profileData', JSON.stringify(profileData));
+
+  const profileData = {
+    name,
+    Pname,
+    bio,
+    work,
+    lives,
+    from,
+    school,
+    maritalStatus,
+    mno,
+    dob,
+    email,
+  };
+  localStorage.setItem('profileData', JSON.stringify(profileData));
 
 
 
 
-    // hobby
-    const [tasks, setTasks] = useState([]);
+  // hobby
+  const [tasks, setTasks] = useState([]);
   const [inputValue, setInputValue] = useState('');
   const [editIndex, setEditIndex] = useState(-1);
 
@@ -145,35 +145,35 @@ const UserProfile = () => {
   return (
     <>
       <div className='profileDeatils'>
-              <div className='coverImages'>
-              {/* <img src={profileCover} id="coverImages" /> */}
+        <div className='coverImages'>
+          {/* <img src={profileCover} id="coverImages" /> */}
 
-              <div>
+          <div>
 
-                  {isEditMode ? (
-                                <input type="file" onChange={handleCoverImageUpload}  />
+            {isEditMode ? (
+              <input type="file" onChange={handleCoverImageUpload} />
 
-                        ) : (
-                          <span>      {selectedCoverImage && <img src={selectedCoverImage} alt="Uploaded" id='coverImages' />}
-                          </span>
-                        )}
-        
-      {/* <input type="file" onChange={handleCoverImageUpload}  /> */}
-      {/* {selectedCoverImage && <img src={selectedCoverImage} alt="Uploaded" id='coverImages' />} */}
-                </div>
+            ) : (
+              <span>      {selectedCoverImage && <img src={selectedCoverImage} alt="Uploaded" id='coverImages' />}
+              </span>
+            )}
 
-            </div>
+            {/* <input type="file" onChange={handleCoverImageUpload}  /> */}
+            {/* {selectedCoverImage && <img src={selectedCoverImage} alt="Uploaded" id='coverImages' />} */}
+          </div>
+
+        </div>
 
         <div className='profile'>
           {/* <img src={profilepic} id='proImages' alt='Profile Picture' /> */}
 
 
           {isEditMode ? (
-          <input type="file" onChange={handleImageUpload} />
+            <input type="file" onChange={handleImageUpload} />
 
-              ) : (<div> {selectedImage && <img src={selectedImage} alt="Uploaded" id='profiledp' />}
-              </div>
-              )}
+          ) : (<div> {selectedImage && <img src={selectedImage} alt="Uploaded" id='profiledp' />}
+          </div>
+          )}
 
           <div id='NamePostion'>
             <label id='Profilename'>
@@ -182,7 +182,7 @@ const UserProfile = () => {
                   type='text'
                   value={name}
                   placeholder='Name'
-                  
+
                   onChange={(e) => setName(e.target.value)}
                 />
               ) : (
@@ -223,164 +223,164 @@ const UserProfile = () => {
         <hr />
 
         <div className='detailsDiv'>
-          
-        <p style={{fontSize:'240x',fontWeight:'bolder'}}>Details</p>
 
-<br />
+          <p style={{ fontSize: '240x', fontWeight: 'bolder' }}>Details</p>
 
-<label>
-  <BsFillBagFill />
-  Works at:{' '}
-  {isEditMode ? (
-    <input
-      type='text'
-      value={work}
-      onChange={(e) => setWork(e.target.value)}
-    />
-  ) : (
-    <span>{work}</span>
-  )}
-</label>
-<br />
+          <br />
 
-<label>
-  <MdSchool />
-  Went to{' '}
-  {isEditMode ? (
-    <input
-      type='text'
-      value={school}
-      onChange={(e) => setSchool(e.target.value)}
-    />
-  ) : (
-    <span>{school}</span>
-  )}
-</label>
-<br />
+          <label>
+            <BsFillBagFill />
+            Works at:{' '}
+            {isEditMode ? (
+              <input
+                type='text'
+                value={work}
+                onChange={(e) => setWork(e.target.value)}
+              />
+            ) : (
+              <span>{work}</span>
+            )}
+          </label>
+          <br />
 
-<label>
-  <MdHome />
-  Lives in{' '}
-  {isEditMode ? (
-    <input
-      type='text'
-      value={lives}
-      onChange={(e) => setLives(e.target.value)}
-    />
-  ) : (
-    <span>{lives}</span>
-  )}
-</label>
-<br />
+          <label>
+            <MdSchool />
+            Went to{' '}
+            {isEditMode ? (
+              <input
+                type='text'
+                value={school}
+                onChange={(e) => setSchool(e.target.value)}
+              />
+            ) : (
+              <span>{school}</span>
+            )}
+          </label>
+          <br />
 
-<label>
-  <MdLocationPin />
-  From{' '}
-  {isEditMode ? (
-    <input
-      type='text'
-      value={from}
-      onChange={(e) => setFrom(e.target.value)}
-    />
-  ) : (
-    <span>{from}</span>
-  )}
-</label>
-<br />
+          <label>
+            <MdHome />
+            Lives in{' '}
+            {isEditMode ? (
+              <input
+                type='text'
+                value={lives}
+                onChange={(e) => setLives(e.target.value)}
+              />
+            ) : (
+              <span>{lives}</span>
+            )}
+          </label>
+          <br />
 
-<label>
-  <BsHeartFill />{' '}
-  {isEditMode ? (
-    <input
-      type='text'
-      value={maritalStatus}
-      onChange={(e) => setMaritalStatus(e.target.value)}
-    />
-  ) : (
-    <span>{maritalStatus}</span>
-  )}
-</label>
-<br />
+          <label>
+            <MdLocationPin />
+            From{' '}
+            {isEditMode ? (
+              <input
+                type='text'
+                value={from}
+                onChange={(e) => setFrom(e.target.value)}
+              />
+            ) : (
+              <span>{from}</span>
+            )}
+          </label>
+          <br />
 
-<label>
-<MdCall />{' '}
-{isEditMode ? (
-<input
-type='tel'
-value={mno}
-onChange={(e) => setMno(e.target.value)}
-/>
-) : (
-<span>{mno}</span>
-)}
-</label>
-<br />
+          <label>
+            maritalStatus{' '} <BsHeartFill />{' '}
+            {isEditMode ? (
+              <input
+                type='text'
+                value={maritalStatus}
+                onChange={(e) => setMaritalStatus(e.target.value)}
+              />
+            ) : (
+              <span>{maritalStatus}</span>
+            )}
+          </label>
+          <br />
+
+          <label>
+            <MdCall />{' mno'}
+            {isEditMode ? (
+              <input
+                type='tel'
+                value={mno}
+                onChange={(e) => setMno(e.target.value)}
+              />
+            ) : (
+              <span>{mno}</span>
+            )}
+          </label>
+          <br />
 
 
-<label>
-  <MdEmail />{' '}
-  {isEditMode ? (
-    <input
-      type='email'
-      value={email}
-      onChange={(e) => setEmail(e.target.value)}
-    />
-  ) : (
-    <span>{email}</span>
-  )}
-</label>
-<br />
+          <label>
+            <MdEmail />{'email '}
+            {isEditMode ? (
+              <input
+                type='email'
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+              />
+            ) : (
+              <span>{email}</span>
+            )}
+          </label>
+          <br />
 
-<label>
-  <BsCalendarDayFill />:{' '}
-  {isEditMode ? (
-    <input
-      type='date'
-      value={dob}
-      onChange={(e) => setDob(e.target.value)}
-    />
-  ) : (
-    <span>{dob}</span>
-  )}
-</label>
-<br />
+          <label>
+            <BsCalendarDayFill />:{'dob '}
+            {isEditMode ? (
+              <input
+                type='date'
+                value={dob}
+                onChange={(e) => setDob(e.target.value)}
+              />
+            ) : (
+              <span>{dob}</span>
+            )}
+          </label>
+          <br />
 
-<p style={{fontSize:'240x',fontWeight:'bolder'}}>Hobby</p>
-        <div>
-        <input
-        type="text"
-        value={inputValue}
-        onChange={handleInputChange}
-        placeholder="Enter Hobbies"
-        id='hobbyInput'
-      />
-      <button onClick={handleAddTask} id='hobbyBtn1' >{editIndex === -1 ? <MdAdd/> : <MdUpdate/>}</button>
-      <ul id='liHobby'>
-        {tasks.map((task, index) => (
-          <li key={index} >
-            {task}
-            <button onClick={() => handleEditTask(index)} id='hobbyBtn'><MdEdit/></button>
-            <button onClick={() => handleDeleteTask(index)} id='hobbyBtn'><MdDelete/></button>
-          </li>
-        ))}
-      </ul>
-          
+          <p style={{ fontSize: '240x', fontWeight: 'bolder' }}>Hobby</p>
+          <div>
+            <input
+              type="text"
+              value={inputValue}
+              onChange={handleInputChange}
+              placeholder="Enter Hobbies"
+              id='hobbyInput'
+            />
+            <button onClick={handleAddTask} id='hobbyBtn1' >{editIndex === -1 ? <MdAdd /> : <MdUpdate />}</button>
+            <ul id='liHobby'>
+              {tasks.map((task, index) => (
+                <li key={index} >
+                  {task}
+                  <button onClick={() => handleEditTask(index)} id='hobbyBtn'><MdEdit /></button>
+                  <button onClick={() => handleDeleteTask(index)} id='hobbyBtn'><MdDelete /></button>
+                </li>
+              ))}
+            </ul>
+
+          </div>
         </div>
- </div>  
-{isEditMode ? (
-  <button onClick={handleSave} id='myBtnProfile'>
-    Save
-  </button>
-) : (
-  <button onClick={handleEdit} id='myBtnProfile'>
-    Edit
-  </button>
-)}
-</div>
+        {isEditMode ? (
+          <button onClick={handleSave} id='myBtnProfile'>
+            Save
+          </button>
+        ) : (
+          <button onClick={handleEdit} id='myBtnProfile'>
+            Edit
+          </button>
+        )}
+      </div>
 
 
-        
-         </>
+
+    </>
   );
 };
 

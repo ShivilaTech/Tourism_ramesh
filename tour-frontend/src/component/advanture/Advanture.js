@@ -112,10 +112,10 @@
 // export default Adventure;
 
 import { FcLike } from 'react-icons/fc';
-import { BsWhatsapp,BsInstagram } from 'react-icons/bs';
+import { BsWhatsapp, BsInstagram } from 'react-icons/bs';
 import { GiCancel } from 'react-icons/gi';
 import { FaShareAlt } from 'react-icons/fa';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Styles from "./advanture.module.css"
 import i1 from "../image/andhra.jpg"
 import i2 from "../images/wb1.jpg"
@@ -126,66 +126,70 @@ import i6 from "../images/assambanner.webp"
 import i7 from "../images/odibanner.jpg"
 import i8 from "../images/odibeach.jpg"
 import i9 from "../images/templeAssam.jpg"
+import { upload } from '@testing-library/user-event/dist/upload';
+import axios from 'axios';
 
-const postData = [
-  {
-    id: 1,
-    title: 'Post 1',
-    img:[i1],
-    content: 'Jammu and Kasmir',
-  },
-  {
-    id: 2,
-    title: 'Post 2',
-    img:[i2],
-    content: 'West Bangole',
-  },
-  {
-    id: 3,
-    title: 'Post 2',
-    img:[i3],
-    content: 'Uttar Pradesh',
-  },
-  {
-    id: 4,
-    title: 'Post 2',
-    img:[i4],
-    content: 'Rajsthan',
-  },
-  {
-    id: 1,
-    title: 'Post 1',
-    img:[i5],
-    content: 'Jammu and Kasmir',
-  },
-  {
-    id: 2,
-    title: 'Post 2',
-    img:[i6],
-    content: 'West Bangole',
-  },
-  {
-    id: 3,
-    title: 'Post 2',
-    img:[i7],
-    content: 'Uttar Pradesh',
-  },
-  {
-    id: 4,
-    title: 'Post 2',
-    img:[i8],
-    content: 'Rajsthan',
-  },
-  {
-    id: 4,
-    title: 'Post 2',
-    img:[i9],
-    content: 'Rajsthan',
-  },
-  // Add more post data objects as needed
-];
+// const postData = [
+//   {
+//     id: 1,
+//     title: 'Post 1',
+//     img: [i1],
+//     content: 'Jammu and Kasmir',
+//   },
+//   {
+//     id: 2,
+//     title: 'Post 2',
+//     img: [i2],
+//     content: 'West Bangole',
+//   },
+//   {
+//     id: 3,
+//     title: 'Post 2',
+//     img: [i3],
+//     content: 'Uttar Pradesh',
+//   },
+//   {
+//     id: 4,
+//     title: 'Post 2',
+//     img: [i4],
+//     content: 'Rajsthan',
+//   },
+//   {
+//     id: 1,
+//     title: 'Post 1',
+//     img: [i5],
+//     content: 'Jammu and Kasmir',
+//   },
+//   {
+//     id: 2,
+//     title: 'Post 2',
+//     img: [i6],
+//     content: 'West Bangole',
+//   },
+//   {
+//     id: 3,
+//     title: 'Post 2',
+//     img: [i7],
+//     content: 'Uttar Pradesh',
+//   },
+//   {
+//     id: 4,
+//     title: 'Post 2',
+//     img: [i8],
+//     content: 'Rajsthan',
+//   },
+//   {
+//     id: 4,
+//     title: 'Post 2',
+//     img: [i9],
+//     content: 'Rajsthan',
+//   },
+//   // Add more post data objects as needed
+// ];
+
 
 const PostItem = ({ post }) => {
+
   const [likes, setLikes] = useState(0);
   const [isShareModalOpen, setIsShareModalOpen] = useState(false);
 
@@ -220,22 +224,22 @@ const PostItem = ({ post }) => {
 
   return (
     <div>
-     
 
 
 
 
 
-    <div className={Styles.container}>
-    <div>
-    <img width="300px" height="300px" src={post.img}/>
-      <h3>{post.title}</h3>
-      <p>{post.content}</p>
-      <button onClick={handleLike}><FcLike/> ({likes})</button>
-      <button onClick={handleShare}><FaShareAlt/></button>
-    </div>
 
-</div>
+      <div className={Styles.container}>
+        <div>
+          <img width="300px" height="300px" src={`https://travel-cg48.onrender.com/adventure/${post.image_url}`} />
+          <h3>{post.location_name}</h3>
+          <p>{post.location_url}</p>
+          <button onClick={handleLike}><FcLike /> ({likes})</button>
+          <button onClick={handleShare}><FaShareAlt /></button>
+        </div>
+
+      </div>
       {isShareModalOpen && (
         <ShareModal
           onWhatsAppShare={handleWhatsAppShare}
@@ -251,15 +255,28 @@ const ShareModal = ({ onWhatsAppShare, onInstagramShare, onClose }) => {
   return (
     <div className="modal">
       <h3>Share Options</h3>
-      <button onClick={onWhatsAppShare}><BsWhatsapp/></button>
-      <button onClick={onInstagramShare}><BsInstagram/></button>
-      <button onClick={onClose}><GiCancel/></button>
+      <button onClick={onWhatsAppShare}><BsWhatsapp /></button>
+      <button onClick={onInstagramShare}><BsInstagram /></button>
+      <button onClick={onClose}><GiCancel /></button>
     </div>
   );
 };
 
 const Advanture = () => {
-  
+  const [postData, setPostData] = useState();
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await axios.post('https://travel-cg48.onrender.com/adventure/getall');
+        console.log(response.data.data); // Log response.data instead of response
+        setPostData(response.data.data); // Assuming the response data is an array of post objects
+      } catch (error) {
+        console.error(error);
+      }
+    };
+
+    fetchData();
+  }, []);
   // adding loacton 
   const [locationName, setLocationName] = useState('');
   const [locationLink, setLocationLink] = useState('');
@@ -278,17 +295,31 @@ const Advanture = () => {
     }
   };
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
 
     // Create an object with the form data
-    const locationData = {
-      name: locationName,
-      link: locationLink,
-    };
+    const formData = new FormData();
+    formData.append('loacation_name', locationName);
+    formData.append('loacation_url', locationLink);
+    // formData.append('image_url', uploadedImage);
 
-    // Save the data to local storage
-    localStorage.setItem('location', JSON.stringify(locationData));
+    try {
+      const response = await axios.post(`https://travel-cg48.onrender.com/adventure/add`, formData, {
+        headers: {
+          'Content-Type': 'multipart/form-data'
+        }
+      });
+      console.log(response.data.status);
+      if (response.data.status === true) {
+        window.alert(response.data.message)
+        window.location.reload();
+      } else {
+        window.alert(response.data.message)
+      }
+    } catch (error) {
+      console.error(error);
+    }
 
     // Clear the form inputs
     setLocationName('');
@@ -301,60 +332,60 @@ const Advanture = () => {
   return (
 
     <>
-     {/* adding laoction  */}
+      {/* adding laoction  */}
 
-     <form onSubmit={handleSubmit} className={Styles.AdvantureloactonForm}>
-      <div>
-        <label>Location Name:</label>
-        <input
-          type="text"
-          value={locationName}
-          onChange={(event) => setLocationName(event.target.value)}
-          required
-        />
-      </div>
-      <div>
-        <label>Image Upload:</label>
-        <input
-          type="file"
-          onChange={handleImageUpload}
-          accept="image/*"
-          required
-        />
-      </div>
-      <div>
-        <label>Location Link:</label>
-        <input
-          type="text"
-          value={locationLink}
-          onChange={(event) => setLocationLink(event.target.value)}
-          required
-        />
-      </div>
-      <button type="submit">Save</button>
-      {uploadedImage && (
+      <form onSubmit={handleSubmit} className={Styles.AdvantureloactonForm}>
         <div>
-          <h3>Uploaded Image:</h3>
-          <img src={uploadedImage} alt="Uploaded" style={{ maxWidth: '200px' }} />
-          <p>{locationName}</p>
-          <p><a href={locationLink}>{locationLink}</a></p>
-          
-
+          <label>Location Name:</label>
+          <input
+            type="text"
+            value={locationName}
+            onChange={(event) => setLocationName(event.target.value)}
+            required
+          />
         </div>
-      )}
-    </form>
+        <div>
+          <label>Image Upload:</label>
+          <input
+            type="file"
+            onChange={handleImageUpload}
+            accept="image/*"
+            required
+          />
+        </div>
+        <div>
+          <label>Location Link:</label>
+          <input
+            type="text"
+            value={locationLink}
+            onChange={(event) => setLocationLink(event.target.value)}
+            required
+          />
+        </div>
+        <button type="submit">Save</button>
+        {uploadedImage && (
+          <div>
+            <h3>Uploaded Image:</h3>
+            <img src={uploadedImage} alt="Uploaded" style={{ maxWidth: '200px' }} />
+            <p>{locationName}</p>
+            <p><a href={locationLink}>{locationLink}</a></p>
+
+
+          </div>
+        )}
+      </form>
 
 
 
 
-    <div className={Styles.main}>
-      {postData.map((post) => (
-        <PostItem key={post.id} post={post} />
-      ))}
-    </div>
-    
+      <div className={Styles.main}>
+        {postData && postData.map((post) => (
+          <PostItem key={post._id} post={post} />
+        ))}
+      </div>
+
     </>
-    
+
   );
 };
 

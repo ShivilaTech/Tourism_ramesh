@@ -4,6 +4,7 @@ import { RiUpload2Line } from 'react-icons/ri';
 import { BsFillBagFill, BsHeartFill, BsCalendarDayFill } from 'react-icons/bs';
 import { MdSchool, MdHome, MdLocationPin, MdCall } from 'react-icons/md';
 import axios from 'axios';
+import moment from 'moment/moment';
 
 const EditProfile = () => {
   const [isEditMode, setIsEditMode] = useState(false);
@@ -61,21 +62,26 @@ const EditProfile = () => {
   const handleEdit = () => {
     setIsEditMode(true);
   };
+  let [year, month, date] = dob.split(`-`)
+
+  let day = date + "-" + month
 
   const handleSave = async () => {
+
     setIsEditMode(false);
 
     const updatedProfileData = {
       name,
       Pname,
       bio,
-      worksAt:work,
-      liveIn:lives,
+      worksAt: work,
+      liveIn: lives,
       from,
       school,
       maritalStatus,
       mno,
       dob,
+      dobNew: day,
       cover_photo: selectedCoverImage
 
     };
@@ -86,7 +92,7 @@ const EditProfile = () => {
         `https://travel-cg48.onrender.com/user/update/${userId}`,
         updatedProfileData
       );
-    
+
       window.alert(response.data.message);
       window.location.reload()
       // Handle success response
@@ -97,7 +103,7 @@ const EditProfile = () => {
   }
 
   const userId = localStorage.getItem('userId');
-
+  console.log(dob, "");
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -107,7 +113,7 @@ const EditProfile = () => {
         );
         console.log(response.data.data)
         setResponseData(response.data.data);
-        
+
       } catch (error) {
         console.error(error);
       }
@@ -126,21 +132,21 @@ const EditProfile = () => {
     <>
       <div className='profileDetails'>
 
-      <div className='coverImagess'>
-      {isEditMode ? (
-        <input type='file' onChange={handleCoverImageUpload} />
-      ) : (
-        <span>
-          {selectedCoverImage && (
-            <img
-              src={responseData.cover_photo}
-              alt='Uploaded'
-              id='coverImagess'
-            />
+        <div className='coverImagess'>
+          {isEditMode ? (
+            <input type='file' onChange={handleCoverImageUpload} />
+          ) : (
+            <span>
+              {selectedCoverImage && (
+                <img
+                  src={responseData.cover_photo}
+                  alt='Uploaded'
+                  id='coverImagess'
+                />
+              )}
+            </span>
           )}
-        </span>
-      )}
-    </div>
+        </div>
 
         <div className='profilee'>
           {isEditMode ? (
@@ -190,7 +196,7 @@ const EditProfile = () => {
             <br />
 
             <label>
-              {isEditMode ? (
+              Bio: {isEditMode ? (
                 <textarea
                   value={bio}
                   placeholder='Bio'
@@ -202,18 +208,18 @@ const EditProfile = () => {
             </label>
             <br />
             <div className='email'>
-      <label>
-              
-              Email:{' '}
-  {!isEditMode ? (
-    
-    <span>{responseData ? responseData.email : ''}</span>
-  ) : (
-    
-    null
-  )}
-  </label>
-</div>
+              <label>
+
+                Email:{' '}
+                {!isEditMode ? (
+
+                  <span>{responseData ? responseData.email : ''}</span>
+                ) : (
+
+                  null
+                )}
+              </label>
+            </div>
 
             <label>
               <BsFillBagFill />
@@ -221,7 +227,7 @@ const EditProfile = () => {
               {isEditMode ? (
                 <input
                   type='text'
-                  value={work}
+                  value={responseData && responseData.worksAt}
                   onChange={(e) => setWork(e.target.value)}
                 />
               ) : (
@@ -232,11 +238,11 @@ const EditProfile = () => {
 
             <label>
               <MdSchool />
-              Went to{' '}
+              Went to:{' '}
               {isEditMode ? (
                 <input
                   type='text'
-                  value={school}
+                  value={responseData && responseData.wentTo}
                   onChange={(e) => setSchool(e.target.value)}
                 />
               ) : (
@@ -247,11 +253,11 @@ const EditProfile = () => {
 
             <label>
               <MdHome />
-              Lives in{' '}
+              Lives in:{' '}
               {isEditMode ? (
                 <input
                   type='text'
-                  value={lives}
+                  value={responseData && responseData.liveIn}
                   onChange={(e) => setLives(e.target.value)}
                 />
               ) : (
@@ -262,11 +268,11 @@ const EditProfile = () => {
 
             <label>
               <MdLocationPin />
-              From{' '}
+              From:{' '}
               {isEditMode ? (
                 <input
                   type='text'
-                  value={from}
+                  value={responseData && responseData.from}
                   onChange={(e) => setFrom(e.target.value)}
                 />
               ) : (
@@ -275,8 +281,8 @@ const EditProfile = () => {
             </label>
             <br />
 
-            <label>
-              <BsHeartFill />{' '}
+            {/* <label>
+              <BsHeartFill /> MaritalStatus:{' '}
               {isEditMode ? (
                 <input
                   type='text'
@@ -286,16 +292,16 @@ const EditProfile = () => {
               ) : (
                 <span>{responseData ? responseData.maritalStatus : ''}</span>
               )}
-            </label>
-            <br />
+            </label> */}
+
 
             <label>
               <MdCall />
               Mobile No.{' '}
               {isEditMode ? (
                 <input
-                  type='text'
-                  value={mno}
+                  type='mobile'
+                  value={responseData && responseData.mobile}
                   onChange={(e) => setMno(e.target.value)}
                 />
               ) : (
@@ -305,15 +311,15 @@ const EditProfile = () => {
             <br />
 
             <label>
-              <BsCalendarDayFill />{' '}
+              <BsCalendarDayFill />DOB:{' '}
               {isEditMode ? (
                 <input
-                  type='text'
-                  value={dob}
+                  type='date'
+                  value={moment(responseData && responseData.dob).format()}
                   onChange={(e) => setDob(e.target.value)}
                 />
               ) : (
-                <span>{responseData ? responseData.dob : ''}</span>
+                <span>{responseData ? responseData.dobNew : ''}</span>
               )}
             </label>
             <br />

@@ -16,7 +16,7 @@ import { Autoplay } from "swiper";
 const ArunachalPradesh = () => {
   return (
     <>
-<div>
+<div style={{position:'relative',zIndex:-1}}>
     <Swiper
             slidesPerView={1}
             spaceBetween={30}

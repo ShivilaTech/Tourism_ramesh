@@ -86,7 +86,7 @@ const Profile = () => {
       <div className="form">
         <label>Add photo or Video </label>
         <input type="file" onChange={handleImageChange} />
-        <button onClick={handlePost}>Post</button>
+        <button onClick={handlePost} style={{borderRadius:'15px'}}>Post</button>
 
    
 {/* /dont look */}

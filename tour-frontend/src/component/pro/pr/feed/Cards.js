@@ -31,46 +31,65 @@ const ExpandMore = styled((props) => {
 
 export default function RecipeReviewCard() {
   const [likes, setLikes] = useState(0);
+  const [id, setid] = useState();
   const [expanded, setExpanded] = React.useState(false);
   const [feeds, setFeeds] = useState([]);
 const userId = localStorage.getItem('userId')
+const name = localStorage.getItem('first_name')
   useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await axios.get('https://travel-cg48.onrender.com/user/post/all');
-        console.log(response.data.data); // Log response.data instead of response
-        setFeeds(response.data.data); // Assuming the response data is an array of post objects
-      } catch (error) {
-        console.error(error);
-      }
-    };
-
-    fetchData();
+   fetchData();
   }, []);
 
+  const fetchData = async () => {
+    try {
+      const response = await axios.get('https://travel-cg48.onrender.com/user/post/all');
+      console.log(response.data.data); // Log response.data instead of response
+      setFeeds(response.data.data); // Assuming the response data is an array of post objects
+      // Assuming the response data is an array of post objects
+    } catch (error) {
+      console.error(error);
+    }
+  };
   console.log(feeds);
   const handleExpandClick = () => {
     setExpanded(!expanded);
   };
-  const handleLike = async(postId) => {
-    if (likes === 0) {
-      setLikes(likes+1)
+  const sendNotification = async (id) => {
+    try {
+      let obj={
+        to: id,
+        title: "like added",
+        body: `your post liked by ${name}`
+      }
+      console.log(obj);
+      const response1 = await axios.post('https://travel-cg48.onrender.com/notification/add',obj);
+      console.log(response1.data,"notification"); 
+      
+    } catch (error) {
+      console.error(error);
+    }
+  };
+  const handleLike = async(post) => {
+    if (post.likes[0]?.userId[0]?._id!== userId) {
+      // setLikes(likes+1)
 
       try {
         const response = await axios.post(
           'https://travel-cg48.onrender.com/user/post/like/add',
           {
             userId: userId,
-            postId: postId,
+            postId: post._id,
            
           }
         );
   
         console.log(response);
         console.log(response.data.status);
-  
+      
         if (response.data.status === true) {
-          // console.log("36")
+         
+          fetchData();
+          
           console.log(response.data.message);
           // window.location.reload();
         } else {
@@ -84,7 +103,7 @@ const userId = localStorage.getItem('userId')
     } else {
       try {
         // console.log("50")
-        console.log(userId,postId)
+        console.log(userId,post)
 
 
         const response = await axios.delete(
@@ -92,7 +111,7 @@ const userId = localStorage.getItem('userId')
           {
             data: {
               userId: userId,
-              postId: postId
+              postId: post._id
             }
           }
         );
@@ -103,6 +122,7 @@ const userId = localStorage.getItem('userId')
   
         if (response.data.status === true) {
           setLikes(0)
+          fetchData();
           // window.alert(response.data.message);
           // window.location.reload();
         } else {
@@ -117,12 +137,12 @@ const userId = localStorage.getItem('userId')
   };
 
 
-  
+  console.log(likes,"like");
 
   return (
     <>
   {Array.isArray(feeds) &&
-  feeds.map((feed) => (
+  feeds.map((feed,key) => (
     <div key={feed._id}>
       
       <Card md={{ maxWidth: 745 }} lg={{ maxWidth: 1200 }}>
@@ -149,7 +169,7 @@ const userId = localStorage.getItem('userId')
         <CardMedia
           component="img"
           height="100%"
-          image={`http://35.78.201.111:3008/posts/${feed.postUrl}`}
+          image={`https://travel-cg48.onrender.com/posts/${feed.postUrl}`}
           alt={feed.caption}
         />
         <CardContent>
@@ -157,9 +177,13 @@ const userId = localStorage.getItem('userId')
             {feed.caption}
           </Typography>
         </CardContent>
-        <CardActions disableSpacing>
-        <IconButton aria-label="add to favorites" onClick={() => handleLike(feed._id)}>
-  <FavoriteIcon style={{ color: likes === 0 ? 'gray' : 'red' }} />
+        <CardActions  disableSpacing>
+          <IconButton key={feed._id}  aria-label="add to favorites" onClick={() => {
+            handleLike(feed)
+            feed.likes[0]?.userId[0]=== userId&& sendNotification(feed.userId)
+
+          }}>
+  <FavoriteIcon  style={{ color:feed&& feed?.likes[0]?.userId[0]?._id=== userId? 'red' : 'gray' }} />
 </IconButton>
 
           <IconButton aria-label="share">
