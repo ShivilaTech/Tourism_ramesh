@@ -14,7 +14,7 @@ const AnimatedAvatar = ({ imageUpdated }) => {
   useEffect(() => {
     setAvatarImage(localStorage.getItem('profile_images') || image);
   }, [imageUpdated]);
-console.log(localStorage)
+  console.log(localStorage)
   return (
     <div className="avatar-container">
       <AvatarEditor
@@ -61,7 +61,7 @@ const Profile = () => {
     formData.append('profile_image', photo);
 
     try {
-      const response = await axios.post(`https://travel-cg48.onrender.com/user/upload-profile/${userId}`, formData);
+      const response = await axios.post(`https://travel-d57k.onrender.com/user/upload-profile/${userId}`, formData);
       console.log(response.data);
       localStorage.setItem("profile_images", response.data.data.profile_images);
       console.log(localStorage);
@@ -73,7 +73,7 @@ const Profile = () => {
 
   useEffect(() => {
     if (photo) {
-      handlePost(); 
+      handlePost();
     }
   }, [photo]);
 
@@ -86,45 +86,45 @@ const Profile = () => {
       <div className="form">
         <label>Add photo or Video </label>
         <input type="file" onChange={handleImageChange} />
-        <button onClick={handlePost} style={{borderRadius:'15px'}}>Post</button>
+        <button onClick={handlePost} style={{ borderRadius: '15px' }}>Post</button>
 
-   
-{/* /dont look */}
-      {showPostedContent ? (
-        <>
-          {selectedImages.length > 0 && (
-            <div>
-              <h2>Selected Images</h2>
-              {selectedImages.map((image, index) => (
-                <div key={index}>
-                  <img width="400px" height="300px" src={URL.createObjectURL(image)} alt={`Selected Image ${index}`} />
-                <Comment/>
 
-                </div>
-              ))}
-            </div>
-          )}
+        {/* /dont look */}
+        {showPostedContent ? (
+          <>
+            {selectedImages.length > 0 && (
+              <div>
+                <h2>Selected Images</h2>
+                {selectedImages.map((image, index) => (
+                  <div key={index}>
+                    <img width="400px" height="300px" src={URL.createObjectURL(image)} alt={`Selected Image ${index}`} />
+                    <Comment />
 
-          {selectedVideos.length > 0 && (
-            <div>
-              <h2>Selected Videos</h2>
-              {selectedVideos.map((video, index) => (
-                <div key={index}>
-                  <video controls>
-                    <source  width="400px" height="300px" src={URL.createObjectURL(video)} type={video.type} />
-                    Your browser does not support the video tag.
-                  </video>
-                  <Comment/>
-                </div>
-              ))}
-            </div>
-          )}
-        </>
-      ):null}
-      <div>
-      
-      </div>
-      {/* dont look */}
+                  </div>
+                ))}
+              </div>
+            )}
+
+            {selectedVideos.length > 0 && (
+              <div>
+                <h2>Selected Videos</h2>
+                {selectedVideos.map((video, index) => (
+                  <div key={index}>
+                    <video controls>
+                      <source width="400px" height="300px" src={URL.createObjectURL(video)} type={video.type} />
+                      Your browser does not support the video tag.
+                    </video>
+                    <Comment />
+                  </div>
+                ))}
+              </div>
+            )}
+          </>
+        ) : null}
+        <div>
+
+        </div>
+        {/* dont look */}
         {/* <form onSubmit={handleSubmit} className="form-container">
           <div className="form-group">
             <label htmlFor="caption" className="form-label">Caption:</label>

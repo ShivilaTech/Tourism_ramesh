@@ -5,16 +5,21 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 const db = require('./db')
 const cors = require("cors");
-
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var userSupport = require('./routes/support,.router');
 var feedback = require('./routes/feedbacks.router')
 var notification = require('./routes/notification.router')
+var adventure = require('./routes/adventure.router')
+var adds = require('./routes/add.router')
+var slider = require('./routes/slider.router')
+var admin = require('./routes/admin.router')
+var contact = require('./routes/contact.router')
+var offer = require('./routes/offer.router')
+var team = require('./routes/team.router')
 
 var app = express();
 db.dbConnection()
-
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
@@ -24,12 +29,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
-const allowedOrigins = ['http://localhost:3000', 'http://shivila.online'];
-app.use(cors({
-  origin: ['http://localhost:3000', 'https://www.demotour.shivila.online','https://www.dekhoindia.shivila.online'],
-  "Access-Control-Allow-Origin": "*",
-  "Access-Control-Allow-Credentials": true
-}))
+app.use(cors())
 
 app.use('/profile_images', express.static(path.join(__dirname, 'public/profile_images'))) // PROFILE IMAGES
 
@@ -38,6 +38,13 @@ app.use('/user', usersRouter);
 app.use('/support', userSupport);
 app.use('/feedback', feedback);
 app.use('/notification', notification);
+app.use('/adventure', adventure);
+app.use('/adds', adds);
+app.use('/slider', slider);
+app.use('/admin', admin);
+app.use('/contact', contact);
+app.use('/about/offer', offer);
+app.use('/about/team', team);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
@@ -47,6 +54,11 @@ app.use(function (req, res, next) {
 // =============== IMAGES STATIC PATHS =============== //
 app.use('/profile_images', express.static(path.join(__dirname, 'public/profile_images'))) // PROFILE IMAGES
 app.use('/posts', express.static(path.join(__dirname, 'public/posts'))) // PROFILE IMAGES
+app.use('/adventure', express.static(path.join(__dirname, 'public/adventure'))) // adventure
+app.use('/add', express.static(path.join(__dirname, 'public/add'))) // add
+app.use('/slider', express.static(path.join(__dirname, 'public/slider'))) // add
+app.use('/about/offer', express.static(path.join(__dirname, 'public/offer'))) // add
+app.use('/about/team', express.static(path.join(__dirname, 'public/team'))) // add
 
 
 // error handler

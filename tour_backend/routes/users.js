@@ -34,11 +34,13 @@ router.post("/reset-password", userController.resetPassword);
 router.post("/post/add/:userId", upload_post, userController.addPost);
 router.get("/post/get/:userId", userController.getUserPost);
 router.get("/post/all", userController.getAllPost);
-router.delete("/post/delete/:postId", userController.deletePost);
+router.post("/post/delete", userController.deletePost);
 
-router.post("/post/comment/add", commentCOntroller.addComment);
-router.put("/post/comment/update", commentCOntroller.updateComment);
-router.delete("/post/comment/delete", commentCOntroller.deleteComment);
+router.post("/comment/add", commentCOntroller.addComment);
+router.post("/comment/update", commentCOntroller.updateComment);
+router.post("/comment/delete", commentCOntroller.deleteComment);
+router.put("/comment/update", commentCOntroller.updateComment);
+router.post("/comment/getAll", commentCOntroller.getComment);
 
 router.post("/post/like/add", likeController.addLike);
 router.delete("/post/like/remove", likeController.deleteLike);

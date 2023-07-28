@@ -113,6 +113,27 @@ exports.updateComment = async (req, res) => {
     });
 };
 
+exports.getComment = async (req, res) => {
+
+
+
+
+  commentModel
+    .find()
+    .then((success) => {
+      return res.json({
+        status: true,
+        message: "comment get successfully",
+        data: success
+      });
+    })
+    .catch((error) => {
+      return res.json({
+        status: false,
+        message: "something went wrong",
+      });
+    });
+};
 exports.deleteComment = async (req, res) => {
   const { userId, commentId } = req.body;
 

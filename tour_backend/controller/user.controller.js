@@ -22,6 +22,7 @@ exports.createUser = async (req, res) => {
     wentTo,
     liveIn,
     from,
+    dobNew,
     dob,
     cover_photo,
   } = req.body;
@@ -66,6 +67,7 @@ exports.createUser = async (req, res) => {
     liveIn: liveIn,
     from: from,
     dob: dob,
+    dobNew: dobNew,
     cover_photo: "",
   })
     .save()
@@ -808,7 +810,7 @@ exports.getAllPost = async (req, res) => {
 };
 
 exports.deletePost = async (req, res) => {
-  const { postId } = req.params;
+  const { postId } = req.body;
 
   if (!postId) {
     return res.json({

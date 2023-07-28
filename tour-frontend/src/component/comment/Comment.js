@@ -22,7 +22,7 @@ console.log(postId)
       setLikes(likes+1)
       try {
         const response = await axios.post(
-          'https://travel-cg48.onrender.com/user/post/like/add',
+          'https://travel-d57k.onrender.com/user/post/like/add',
           {
             userId: userId,
             postId: postId,
@@ -52,7 +52,7 @@ console.log(postId)
 
 
         const response = await axios.delete(
-          'https://travel-cg48.onrender.com/user/post/like/remove',
+          'https://travel-d57k.onrender.com/user/post/like/remove',
           {
             data: {
               userId: userId,
@@ -90,7 +90,7 @@ console.log(postId)
   
       try {
         const response = await axios.post(
-          'https://travel-cg48.onrender.com/user/post/comment/add',
+          'https://travel-d57k.onrender.com/user/post/comment/add',
           {
             userId: userId,
             postId: postId,
@@ -223,7 +223,7 @@ console.log(postId)
 //       setLikes(likes+1)
 //       try {
 //         const response = await axios.post(
-//           'https://travel-cg48.onrender.com/user/post/like/add',
+//           'https://travel-d57k.onrender.com/user/post/like/add',
 //           {
 //             userId: userId,
 //             postId: postId,
@@ -247,7 +247,7 @@ console.log(postId)
 //     } else {
 //       try {
 //         const response = await axios.post(
-//           'https://travel-cg48.onrender.com/user/post/like/remove',
+//           'https://travel-d57k.onrender.com/user/post/like/remove',
 //           {
 //             userId: userId,
 //             postId: postId,
@@ -281,7 +281,7 @@ console.log(postId)
   
 //       try {
 //         const response = await axios.post(
-//           'https://travel-cg48.onrender.com/user/post/comment/add',
+//           'https://travel-d57k.onrender.com/user/post/comment/add',
 //           {
 //             userId: userId,
 //             postId: postId,

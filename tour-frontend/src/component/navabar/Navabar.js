@@ -121,7 +121,7 @@ const Navbar = () => {
     try {
       console.log(userId)
       const response = await axios.post(
-        `https://travel-cg48.onrender.com/notification/get`, {
+        `https://travel-d57k.onrender.com/notification/get`, {
         userId: userId,
         key: 1
       }
@@ -137,7 +137,7 @@ const Navbar = () => {
     try {
       console.log(userId)
       const response = await axios.post(
-        `https://travel-cg48.onrender.com/notification/mark-read`, {
+        `https://travel-d57k.onrender.com/notification/mark-read`, {
         userId: userId,
         notificationId: id
       }
@@ -272,7 +272,7 @@ const Navbar = () => {
               </div>
             </li>
             <li className="hvr-pulse">
-              <Link to="/" style={{  textDecoration: 'none' }}>
+              <Link to="/" style={{ textDecoration: 'none' }}>
                 Home
               </Link>
             </li>
@@ -282,17 +282,17 @@ const Navbar = () => {
               </Link>
             </li>
             <li className={Styles.feed}>
-              <Link to="/Feeds" style={{  textDecoration: 'none' }}>
+              <Link to="/Feeds" style={{ textDecoration: 'none' }}>
                 Feeds
               </Link>
             </li>
             <li className={Styles.about}>
-              <Link to="/About" style={{  textDecoration: 'none' }}>
+              <Link to="/About" style={{ textDecoration: 'none' }}>
                 About
               </Link>
             </li>
             <li>
-            <Musicpage />
+              <Musicpage />
             </li>
 
             <li>
@@ -323,7 +323,7 @@ const Navbar = () => {
                 onMouseLeave={handleMouseLeave}
                 className="dropdown"
               >
-                <button className="dropdown-toggle" style={{borderRadius :'15px'}}>search by state</button>
+                <button className="dropdown-toggle" style={{ borderRadius: '15px' }}>search by state</button>
 
                 {isOpen && (
                   <div className={Styles.dropdownmenu}>
@@ -432,10 +432,10 @@ const Navbar = () => {
 
 
 
-          
+
         </div>
         <div className={Styles.last}>
-        
+
           {active ? <div onClick={showActive} style={{ color: 'black', fontSize: '20px' }}></div> : <div onClick={handleShow} ><FaBars size={20} style={{ color: 'black' }} /> </div>}
 
 
@@ -461,12 +461,12 @@ const Navbar = () => {
 
             </li>
             <li>
-           
+
             </li>
             <li><DayNightButton />
             </li>
             <li className={Styles.hideh}>
-              <Link to="/" style={{ textDecoration: 'none',Margin:'80px', }}>
+              <Link to="/" style={{ textDecoration: 'none', Margin: '80px', }}>
                 Home
               </Link>
             </li>

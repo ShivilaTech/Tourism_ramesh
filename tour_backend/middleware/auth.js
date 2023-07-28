@@ -17,6 +17,18 @@ exports.generate_token_user = async (_id, username) => {
     return token
 }
 
+exports.generate_token_admin = async (_id, username) => {
+
+    const token = await jwt.sign(
+        { patient_id: _id, username },
+        SECRET_KEY_USER,
+        {
+            expiresIn: "365d",
+        }
+    );
+    return token
+}
+
 // ------------- authenticate jwt token for User ------------- //
 exports.authenticate_user = (req, res, next) => {
     let token = req.headers.authorization

@@ -42,7 +42,7 @@ const name = localStorage.getItem('first_name')
 
   const fetchData = async () => {
     try {
-      const response = await axios.get('https://travel-cg48.onrender.com/user/post/all');
+      const response = await axios.get('https://travel-d57k.onrender.com/user/post/all');
       console.log(response.data.data); // Log response.data instead of response
       setFeeds(response.data.data); // Assuming the response data is an array of post objects
       // Assuming the response data is an array of post objects
@@ -62,7 +62,7 @@ const name = localStorage.getItem('first_name')
         body: `your post liked by ${name}`
       }
       console.log(obj);
-      const response1 = await axios.post('https://travel-cg48.onrender.com/notification/add',obj);
+      const response1 = await axios.post('https://travel-d57k.onrender.com/notification/add',obj);
       console.log(response1.data,"notification"); 
       
     } catch (error) {
@@ -75,7 +75,7 @@ const name = localStorage.getItem('first_name')
 
       try {
         const response = await axios.post(
-          'https://travel-cg48.onrender.com/user/post/like/add',
+          'https://travel-d57k.onrender.com/user/post/like/add',
           {
             userId: userId,
             postId: post._id,
@@ -107,7 +107,7 @@ const name = localStorage.getItem('first_name')
 
 
         const response = await axios.delete(
-          'https://travel-cg48.onrender.com/user/post/like/remove',
+          'https://travel-d57k.onrender.com/user/post/like/remove',
           {
             data: {
               userId: userId,
@@ -169,7 +169,7 @@ const name = localStorage.getItem('first_name')
         <CardMedia
           component="img"
           height="100%"
-          image={`https://travel-cg48.onrender.com/posts/${feed.postUrl}`}
+          image={`https://travel-d57k.onrender.com/posts/${feed.postUrl}`}
           alt={feed.caption}
         />
         <CardContent>
@@ -256,7 +256,7 @@ const name = localStorage.getItem('first_name')
 //   useEffect(() => {
 //     const fetchData = async () => {
 //       try {
-//         const response = await axios.get('https://travel-cg48.onrender.com/user/post/all');
+//         const response = await axios.get('https://travel-d57k.onrender.com/user/post/all');
 //         console.log(response.data.data); // Log response.data instead of response
 //         setFeeds(response.data.data); // Assuming the response data is an array of post objects
 //       } catch (error) {
@@ -279,7 +279,7 @@ const name = localStorage.getItem('first_name')
 //       try {
 //         console.log("add");
 //         const response = await axios.post(
-//           'https://travel-cg48.onrender.com/user/post/like/add',
+//           'https://travel-d57k.onrender.com/user/post/like/add',
 //           {
 //             userId: userId,
 //             postId: postId,
@@ -314,7 +314,7 @@ const name = localStorage.getItem('first_name')
 //         console.log(userId);
 //         console.log(postId);
 //         const response = await axios.post(
-//           'https://travel-cg48.onrender.com/user/post/like/remove',
+//           'https://travel-d57k.onrender.com/user/post/like/remove',
 //           {
 //             userId: userId,
 //             postId: postId,

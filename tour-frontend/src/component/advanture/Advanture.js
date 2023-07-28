@@ -232,9 +232,9 @@ const PostItem = ({ post }) => {
 
       <div className={Styles.container}>
         <div>
-          <img width="300px" height="300px" src={`https://travel-cg48.onrender.com/adventure/${post.image_url}`} />
+          <p><a href={post.location_url} target='_blank'><img width="300px" height="300px" src={`https://travel-d57k.onrender.com/adventure/${post.image_url}`} /></a></p>
           <h3>{post.location_name}</h3>
-          <p>{post.location_url}</p>
+
           <button onClick={handleLike}><FcLike /> ({likes})</button>
           <button onClick={handleShare}><FaShareAlt /></button>
         </div>
@@ -267,7 +267,7 @@ const Advanture = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.post('https://travel-cg48.onrender.com/adventure/getall');
+        const response = await axios.post('https://travel-d57k.onrender.com/adventure/getall');
         console.log(response.data.data); // Log response.data instead of response
         setPostData(response.data.data); // Assuming the response data is an array of post objects
       } catch (error) {
@@ -282,30 +282,30 @@ const Advanture = () => {
   const [locationLink, setLocationLink] = useState('');
   const [uploadedImage, setUploadedImage] = useState('');
 
-  const handleImageUpload = (event) => {
-    const file = event.target.files[0];
-    const reader = new FileReader();
+  // const handleImageUpload = (event) => {
+  //   setUploadedImage(event.target.files[0]);
+  //   // const reader = new FileReader();
 
-    reader.onloadend = () => {
-      setUploadedImage(reader.result);
-    };
+  //   // reader.onloadend = () => {
+  //   //   setUploadedImage(reader.result);
+  //   // };
 
-    if (file) {
-      reader.readAsDataURL(file);
-    }
-  };
-
+  //   // if (file) {
+  //   //   reader.readAsDataURL(file);
+  //   // }
+  // };
+  console.log(uploadedImage);
   const handleSubmit = async (event) => {
     event.preventDefault();
 
     // Create an object with the form data
     const formData = new FormData();
-    formData.append('loacation_name', locationName);
-    formData.append('loacation_url', locationLink);
-    // formData.append('image_url', uploadedImage);
+    formData.append('location_name', locationName);
+    formData.append('location_url', locationLink);
+    formData.append('adventure', uploadedImage);
 
     try {
-      const response = await axios.post(`https://travel-cg48.onrender.com/adventure/add`, formData, {
+      const response = await axios.post(`https://travel-d57k.onrender.com/adventure/add`, formData, {
         headers: {
           'Content-Type': 'multipart/form-data'
         }
@@ -348,7 +348,7 @@ const Advanture = () => {
           <label>Image Upload:</label>
           <input
             type="file"
-            onChange={handleImageUpload}
+            onChange={(event) => setUploadedImage(event.target.files[0])}
             accept="image/*"
             required
           />
@@ -363,7 +363,7 @@ const Advanture = () => {
           />
         </div>
         <button type="submit">Save</button>
-        {uploadedImage && (
+        {/* {uploadedImage && (
           <div>
             <h3>Uploaded Image:</h3>
             <img src={uploadedImage} alt="Uploaded" style={{ maxWidth: '200px' }} />
@@ -372,7 +372,7 @@ const Advanture = () => {
 
 
           </div>
-        )}
+        )} */}
       </form>
 
 

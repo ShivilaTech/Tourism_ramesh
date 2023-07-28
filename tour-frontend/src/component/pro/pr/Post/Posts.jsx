@@ -16,7 +16,7 @@ const Posts = ({ posts }) => {
   const handleDeletePost = async (postId) => {
     try {
       console.log(postId);
-      const response = await axios.delete(`https://travel-cg48.onrender.com/user/post/delete/${postId}`);
+      const response = await axios.delete(`https://travel-d57k.onrender.com/user/post/delete/${postId}`);
       console.log(response.data);
       if (response.data.status == true) {
         window.alert(response.data.message);
@@ -33,7 +33,7 @@ const Posts = ({ posts }) => {
       <div className="post-container">
         {posts.map((post) => (
           <div key={post._id} className="card">
-            <img src={`https://travel-cg48.onrender.com/posts/${post.postUrl}`} alt={post.caption} />
+            <img src={`https://travel-d57k.onrender.com/posts/${post.postUrl}`} alt={post.caption} />
             <h2>{post.caption}</h2>
             <button onClick={() => handleEditPost(post._id)}>Edit</button>
             <button onClick={() => handleDeletePost(post._id)}>Delete</button>
@@ -67,13 +67,13 @@ export default Posts;
 
 
 ///////////////----------3june----------///////////////////////////////
-// https://travel-cg48.onrender.com/profile_images/profile_image_1685380245019_CSS%20DEMO1.png
+// https://travel-d57k.onrender.com/profile_images/profile_image_1685380245019_CSS%20DEMO1.png
 // PROFILE PHOTO
 // -----------------------------------------------------------------
 // mahesh mhaske3:13 PM
-// https://travel-cg48.onrender.com/posts/profile_image_1685380245019_CSS%20DEMO1.png
+// https://travel-d57k.onrender.com/posts/profile_image_1685380245019_CSS%20DEMO1.png
 
 // post
-// https://travel-cg48.onrender.com/posts
+// https://travel-d57k.onrender.com/posts
 // mahesh mhaske3:19 PM
-// https://travel-cg48.onrender.com/profile_images/
+// https://travel-d57k.onrender.com/profile_images/

@@ -53,7 +53,11 @@ exports.getNotification = async (req, res) => {
     //         message: "please provide kry and userId"
     //     })
     // }
+    // let ts = Date.padStart(2, "0")
 
+    let date_ob = new Date();
+    let date = String(date_ob.getDate()).padStart(2, "0");
+    let month = String(date_ob.getMonth() + 1).padStart(2, "0");
     const isUserExist = await userModel.findOne({ _id: mongoose.Types.ObjectId(userId) })
     if (!isUserExist) {
         return res.json({
@@ -61,10 +65,12 @@ exports.getNotification = async (req, res) => {
             message: "invalid user id"
         })
     }
-
-    const data = await notificationModel.find()
-    console.log(data)
-
+    let filter = date + "-" + month
+    userBirthday = await userModel.findOne({
+        _id: mongoose.Types.ObjectId(userId),
+        dobNew: filter
+    })
+    console.log(filter);
     let query = {}
     let message = ``
 
@@ -72,13 +78,16 @@ exports.getNotification = async (req, res) => {
         message = `All Notifications`
         query = {
             userId: mongoose.Types.ObjectId(userId),
+
+
         }
     }
     else if (key == 1) {
-        message = `All unread Notifications`
+        message = `All Notifications`
+
         query = {
             userId: mongoose.Types.ObjectId(userId),
-            isRead: false
+            isRead: false,
         }
     }
     else if (key == 2) {
@@ -92,20 +101,31 @@ exports.getNotification = async (req, res) => {
 
     console.log(query)
 
-    await notificationModel.find(query)
-        .then((success) => {
-            return res.json({
-                status: true,
-                message: message,
-                data: success
-            })
-        })
-        .catch((error) => {
-            return res.json({
-                status: false,
-                message: "something went wrong"
-            })
-        })
+
+    await notificationModel.find(query).then((success) => {
+        return res.send({
+            status: true,
+            message: "find",
+            birthday: userBirthday ? true : false,
+            data: success
+        });
+    })
+
+    // console.log(notification);
+    // const response = {
+    //     birthday: "your birthday",
+    //     _id: notification._id,
+    //     to: notification.to,
+    //     title: notification.title,
+    //     body: notification.body,
+    //     isRead: notification.isRead,
+    // }
+
+    // res.send({
+    //     status: true,
+    //     message: "find",
+    //     data: response,
+    // });
 }
 
 exports.markNotificationAsRead = async (req, res) => {

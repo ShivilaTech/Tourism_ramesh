@@ -1,20 +1,53 @@
 .footerr{
-width: 100%;
+width: 80%;
+margin: auto;
 height: auto;
+display: flex;
+  
+
+
+
+  background: -webkit-gradient(linear,left top,right bottom,from(#eff0f3),to(#e5e6eb));
+  background: -webkit-linear-gradient(top left,#eff0f3,#e5e6eb);
+  background: linear-gradient(to bottom right,#eff0f3,#e5e6eb);
+  -webkit-box-shadow: 3px 3px 6px #bfc3cf,-3px -3px 6px #fff;
+  box-shadow: 3px 3px 6px #bfc3cf,-3px -3px 6px #fff;
+  margin-top: 60px;
 }
 .mainFooter{
+  width: 100%;
 display: flex;
+text-align: justify;
 justify-content: space-around;
+
 }
 .footerDiv{
-color:black;
+color:rgb(9, 49, 210);
 }
+.lowerFotter{
+width: 80%;
+
+ margin: auto;
+}
+
+
+.lastFooterSuvv{
+  display: flex;
+  justify-content: space-around;
+}
+.lastFooterSuvv{
+border-bottom: 3px dotted white;
+}
+
+
 
 
 .lowerFotter{
-    background-color: #f1f1f1;
+    background-color:transparent;
     padding: 20px;
     text-align: center;
+    color: white;
+
   }
   
   .logo {
@@ -23,9 +56,69 @@ color:black;
   }
   
   .copy-right {
-    font-size: 14px;
-    color: #888;
+    font-size: 15px;
+    color: black;
+    font-weight: bold;
   }
+  uperFooterr{
+    display: flex;
+    justify-content: space-around;
+  
+  
+  
+    background: -webkit-gradient(linear,left top,right bottom,from(#eff0f3),to(#e5e6eb));
+    background: -webkit-linear-gradient(top left,#eff0f3,#e5e6eb);
+    background: linear-gradient(to bottom right,#eff0f3,#e5e6eb);
+    -webkit-box-shadow: 3px 3px 6px #bfc3cf,-3px -3px 6px #fff;
+    box-shadow: 3px 3px 6px #bfc3cf,-3px -3px 6px #fff;
+  }
+  
+  #aghoriSizeIcons1{
+    height: 110px;
+    width: 160px;
+  }
+  
+  .Footerr{
+    border-radius: 15px;
+  
+    margin-top: 18px;
+    background: -webkit-gradient(linear,left top,right bottom,from(#eff0f3),to(#e5e6eb));
+    background: -webkit-linear-gradient(top left,#eff0f3,#e5e6eb);
+    background: linear-gradient(to bottom right,#eff0f3,#e5e6eb);
+    -webkit-box-shadow: 3px 3px 6px #bfc3cf,-3px -3px 6px #fff;
+    box-shadow: 3px 3px 6px #bfc3cf,-3px -3px 6px #fff;
+    display: flex;
+    border-top-left-radius: 15px;
+    justify-content: space-around;
+  }
+  
+  .Footerr h3{
+    border-bottom: 2px dotted black;
+    color: #264a9f;
+  }
+  .imgf{
+    width: 230px;
+  }
+  
+  
+  .lastFooter{
+    text-align: center;
+  
+    color: rgb(31, 44, 160);
+  
+  
+  }
+  
+  .lastFooterSuvv{
+    display: flex;
+    justify-content: space-around;
+  }
+  .lastFooterSuvv{
+  border-bottom: 3px dotted white;
+  }
+  
+  
+  
   
   /* Responsive Styles */
   @media (max-width: 767px) {
@@ -43,14 +136,68 @@ color:black;
         justify-content: space-around;
         font-size: 19px;
         margin-top: 150px;
+        text-align: center;
         }
   }
 
 
 
-    @media only screen and (min-width: 768px) and (max-width: 1023px) {
+   
+    @media only screen and (max-width: 768px)  {
+      .footerr{
+        
+        width: 80%;
+        margin: auto;
+        height: auto;
+    
+          
+        text-align: center;
+        
+     
+          background: -webkit-gradient(linear,left top,right bottom,from(#eff0f3),to(#e5e6eb));
+          background: -webkit-linear-gradient(top left,#eff0f3,#e5e6eb);
+          background: linear-gradient(to bottom right,#eff0f3,#e5e6eb);
+          -webkit-box-shadow: 3px 3px 6px #bfc3cf,-3px -3px 6px #fff;
+          box-shadow: 3px 3px 6px #bfc3cf,-3px -3px 6px #fff;
+        }
+        .lowerFotter{
+          width: 71%;
+          
+          
+           margin: auto;
+          }
+          .lastFooter{
+            text-align: justify;
+          
+            color: rgb(31, 44, 160);
+          
+          
+          }
+        
         .mainFooter{
-            display: flex;
-            justify-content: space-around;
-            }
-    }
+          width: 100%;
+        
+        text-align: justify;
+        align-items: center;
+        justify-content: space-around;
+        
+        }
+        .footerDiv{
+        color:rgb(9, 49, 210);
+        align-items: center;
+        text-align: center;
+        }
+        .lastFooterSuvv{
+          display: block;
+          width: 100%;
+          
+      text-align: center;
+          justify-content: space-around;
+        }
+        .lastFooterSuvv{
+        border-bottom: 3px dotted white;
+        }
+  }
+
+
+    

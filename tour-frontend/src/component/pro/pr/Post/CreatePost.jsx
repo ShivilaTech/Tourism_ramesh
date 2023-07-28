@@ -28,27 +28,27 @@ function CreatePost() {
     formData.append('post', photo);
 
     try {
-      const response = await axios.post(`https://travel-cg48.onrender.com/user/post/add/${userId}`, formData, {
+      const response = await axios.post(`https://travel-d57k.onrender.com/user/post/add/${userId}`, formData, {
         headers: {
           'Content-Type': 'multipart/form-data'
         }
       });
       console.log(response.data.status);
-      if(response.data.status === true){
+      if (response.data.status === true) {
         window.alert(response.data.message)
-        window.location.reload(); 
-      }else{
+        window.location.reload();
+      } else {
         window.alert(response.data.message)
       }
     } catch (error) {
       console.error(error);
     }
   };
- 
+
   const fetchPosts = async () => {
     try {
       console.log(userId);
-      const response = await axios.get(`https://travel-cg48.onrender.com/user/post/get/${userId}`);
+      const response = await axios.get(`https://travel-d57k.onrender.com/user/post/get/${userId}`);
       console.log(response)
       setPosts(response.data.data);
     } catch (error) {

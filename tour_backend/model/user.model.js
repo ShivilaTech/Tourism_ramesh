@@ -48,6 +48,10 @@ const userSchema = new mongoose.Schema({
         type: Date,
         default: ''
     },
+    dobNew: {
+        type: String,
+        default: ''
+    },
     password: {
         type: String,
         default: ''

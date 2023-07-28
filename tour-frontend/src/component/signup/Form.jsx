@@ -54,8 +54,8 @@ const Form = () => {
     if (isLogin) {
       // console.log('Login submitted with email:', email, 'and password:', password);
 
-      const { data } = await axios.post(`https://travel-cg48.onrender.com/user/login`, { username: email, password })
-      //  const {signup} =await axios.get("https://travel-cg48.onrender.com/user/signup",{username:email,password})
+      const { data } = await axios.post(`http://13.235.31.8:3008/user/login`, { username: email, password })
+      //  const {signup} =await axios.get("https://travel-d57k.onrender.com/user/signup",{username:email,password})
       //  console.log(signup,"signupdata")
       if (data) {
         console.log('Login submitted with email:', email, 'and password:', password);
@@ -118,7 +118,7 @@ const Form = () => {
         confirmPassword
       );
 
-      const { data } = await axios.post(`https://travel-cg48.onrender.com/user/create`, { first_name: name, last_name: last_name, mobile: mobile, photo: photo, email, password })
+      const { data } = await axios.post(`https://travel-d57k.onrender.com/user/create`, { first_name: name, last_name: last_name, mobile: mobile, photo: photo, email, password })
 
       console.log(data)
       console.log(localStorage)

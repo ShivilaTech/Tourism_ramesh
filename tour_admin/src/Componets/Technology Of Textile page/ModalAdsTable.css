@@ -1,0 +1,10 @@
+.modal-content-Ads{
+background-color: rgb(180, 178, 178);
+width: 1000px;
+padding: 20px;
+box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+.modal-content-Ads table{
+    width: 100%;
+}

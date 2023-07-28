@@ -49,13 +49,13 @@ const EditProfile = () => {
       setName(profileData.name);
       setPName(profileData.Pname);
       setBio(profileData.bio);
-      setWork(profileData.work);
-      setLives(profileData.lives);
-      setFrom(profileData.from);
-      setSchool(profileData.school);
+      setWork(responseData && responseData.worksAt);
+      setLives(responseData && responseData.liveIn);
+      setFrom(responseData && responseData.from);
+      setSchool(responseData && responseData.wentTo);
       setMaritalStatus(profileData.maritalStatus);
       setMno(profileData.mno);
-      setDob(profileData.dob);
+      setDob(moment(responseData && responseData.dob).format());
     }
   }, []);
 
@@ -89,7 +89,7 @@ const EditProfile = () => {
     try {
       console.log(userId);
       const response = await axios.put(
-        `https://travel-cg48.onrender.com/user/update/${userId}`,
+        `https://travel-d57k.onrender.com/user/update/${userId}`,
         updatedProfileData
       );
 
@@ -109,7 +109,7 @@ const EditProfile = () => {
       try {
         console.log(userId)
         const response = await axios.get(
-          `https://travel-cg48.onrender.com/user/get/${userId}`
+          `https://travel-d57k.onrender.com/user/get/${userId}`
         );
         console.log(response.data.data)
         setResponseData(response.data.data);
@@ -155,7 +155,7 @@ const EditProfile = () => {
             <span>
               {selectedImage && (
                 <img
-                  src={`https://travel-cg48.onrender.com/profile_images/${responseData.photo}`}
+                  src={`https://travel-d57k.onrender.com/profile_images/${responseData.photo}`}
                   alt='Uploaded'
                   id='profiledp'
                 />
@@ -227,7 +227,7 @@ const EditProfile = () => {
               {isEditMode ? (
                 <input
                   type='text'
-                  value={responseData && responseData.worksAt}
+                  value={work}
                   onChange={(e) => setWork(e.target.value)}
                 />
               ) : (
@@ -242,7 +242,7 @@ const EditProfile = () => {
               {isEditMode ? (
                 <input
                   type='text'
-                  value={responseData && responseData.wentTo}
+                  value={school}
                   onChange={(e) => setSchool(e.target.value)}
                 />
               ) : (
@@ -257,7 +257,7 @@ const EditProfile = () => {
               {isEditMode ? (
                 <input
                   type='text'
-                  value={responseData && responseData.liveIn}
+                  value={lives}
                   onChange={(e) => setLives(e.target.value)}
                 />
               ) : (
@@ -272,7 +272,7 @@ const EditProfile = () => {
               {isEditMode ? (
                 <input
                   type='text'
-                  value={responseData && responseData.from}
+                  value={from}
                   onChange={(e) => setFrom(e.target.value)}
                 />
               ) : (
@@ -315,7 +315,7 @@ const EditProfile = () => {
               {isEditMode ? (
                 <input
                   type='date'
-                  value={moment(responseData && responseData.dob).format()}
+                  value={dob}
                   onChange={(e) => setDob(e.target.value)}
                 />
               ) : (

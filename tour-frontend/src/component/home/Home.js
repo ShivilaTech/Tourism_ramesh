@@ -380,7 +380,7 @@ useEffect(() => {
 <a href='http://www.facebook.com/Shivila-Technologies-Private-Limited-103738392217809'><FaFacebookSquare style={{color:'blue'}} /></a>
 <a href='https://www.instagram.com/shivilatechnologies/' style={{textDecoration:'none'}}><FaInstagramSquare className={Styles.myInsta}  /></a>
 <a href='https://www.twitter.com/ShivilaIn'><FaTwitterSquare style={{color:'blue'}} /></a>
-<a href='https://l.facebook.com/l.php?u=https%3A%2F%2Fapi.whatsapp.com%2Fsend%3Fphone%3D%252B918335935735%26data_filter_required%3DARDqskof1hiZoeYgB3WgVGNp0PkaAC8MPB5iCIOC8z69yOkJi2PxlWI5Blkpjahzus7QzWeOQ8ybXszke8EXxW5IT_tHTA8vCu7qhQ9OzbnxJOTlzhhrhdowUe1IT_MAFAqn9y_teEhcnK-7IOmUT628FA%26source%3DFB_Page%26app%3Dfacebook%26entry_point%3Dpage_cta%26fbclid%3DIwAR3YkZcktLUstE9_9wdN30SdI7zps03mVDGB1woXffNmyCF1y1uEiT6SD7A&h=AT0DUTmlvepQW1OvXEnygMJi5RfJxTHc3gjtZdhthoKsctqvAL51H8bjMLuObC5z0Mo8IUDZkelpKdjRee-uG1CyKPW1qi97oj39NEzWtKVQso6QLqcDt33ihc6e3q_DsxYwG92omtBsfqAxrfrt5A'><FaWhatsappSquare style={{color:'green'}} /></a>
+<a href='https://api.whatsapp.com/send/?phone=8335935735&text=Hi&app_absent=0'><FaWhatsappSquare style={{color:'green'}} /></a>
 </div>
 
 
