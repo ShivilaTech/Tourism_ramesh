@@ -5,6 +5,8 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 const db = require('./db')
 const cors = require("cors");
+const dotenv = require("dotenv");
+const config_Server = require("./config/Server")
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var userSupport = require('./routes/support,.router');
@@ -16,10 +18,15 @@ var slider = require('./routes/slider.router')
 var admin = require('./routes/admin.router')
 var contact = require('./routes/contact.router')
 var offer = require('./routes/offer.router')
-var team = require('./routes/team.router')
+var team = require('./routes/team.router');
+var locations = require('./routes/location.router');
+
+var review = require('./routes/review.router');
+
 
 var app = express();
 db.dbConnection()
+dotenv.config();
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
@@ -29,7 +36,12 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
-app.use(cors())
+const allowedOrigins = ['http://localhost:3000','http://localhost:3001',  'http://shivila.online'];
+app.use(cors({
+  origin: ['http://localhost:3000','http://localhost:3001',  'https://www.demotour.shivila.online', 'https://www.dekhoindia.shivila.online'],
+  "Access-Control-Allow-Origin": "*",
+  "Access-Control-Allow-Credentials": true
+}))
 
 app.use('/profile_images', express.static(path.join(__dirname, 'public/profile_images'))) // PROFILE IMAGES
 
@@ -45,6 +57,8 @@ app.use('/admin', admin);
 app.use('/contact', contact);
 app.use('/about/offer', offer);
 app.use('/about/team', team);
+app.use('/review', review);
+app.use('/locations', locations);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
@@ -59,6 +73,7 @@ app.use('/add', express.static(path.join(__dirname, 'public/add'))) // add
 app.use('/slider', express.static(path.join(__dirname, 'public/slider'))) // add
 app.use('/about/offer', express.static(path.join(__dirname, 'public/offer'))) // add
 app.use('/about/team', express.static(path.join(__dirname, 'public/team'))) // add
+app.use('/review', express.static(path.join(__dirname, 'public/review'))) // add
 
 
 // error handler
@@ -72,4 +87,4 @@ app.use(function (err, req, res, next) {
   res.render('error');
 });
 
-module.exports = app;
+module.exports = config_Server(app);

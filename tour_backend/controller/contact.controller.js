@@ -28,13 +28,15 @@ exports.add = async (req, res) => {
 };
 exports.update = async (req, res) => {
      const { id } = req.body;
+     console.log("31" ,req.body)
      const { phone, whatsapp, email } = req.body;
-     await contactModel.findOneAndUpdate({
-          _id: id,
-          phone: phone,
-          whatsapp: whatsapp,
-          email: email
-     }).then((success) => {
+     await contactModel.findOneAndUpdate(
+          {_id: id},{$set:{
+               phone: phone,
+               whatsapp: whatsapp,
+               email: email
+         } }).then((success) => {
+          console.log('38updated')
           return res.json({
                status: true,
                message: "contact updated",
@@ -42,6 +44,7 @@ exports.update = async (req, res) => {
           })
      })
           .catch((error) => {
+               console.log('46updated')
                return res.json({
                     status: true,
                     message: "something went wrong",

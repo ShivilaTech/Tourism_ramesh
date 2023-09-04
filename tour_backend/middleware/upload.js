@@ -9,7 +9,7 @@ exports.upload_profile = multer({
             cb(null, `profile_image_` + `${Date.now()}` + `_` + file.originalname)
         }
     }),
-}).single('profile_image')
+}).single('profile_image') 
 
 exports.upload_post = multer({
     storage: multer.diskStorage({
@@ -71,6 +71,38 @@ exports.upload_team = multer({
         }
     }),
 }).single('team')
+exports.upload_review = multer({
+    storage: multer.diskStorage({
+        destination: function (req, file, cb) {
+            cb(null, `./public/review/`)
+        },
+        filename: function (req, file, cb) {
+            cb(null, `review` + `${Date.now()}` + `_` + file.originalname)
+        }
+    }),
+}).array('review' , 100);    
+
+exports.upload_locationCara = multer({
+    storage: multer.diskStorage({
+        destination: function (req, file, cb) {
+            if (file.fieldname === 'caraImgLocation') {
+                cb(null, './public/caraImgLocation/');
+            } else if (file.fieldname === 'locationImg') {
+                cb(null, './public/locationImg/');
+            } else {
+                cb(new Error('Invalid fieldname'), null);
+            }
+        },
+        filename: function (req, file, cb) {
+            cb(null, file.fieldname + `${Date.now()}_` + file.originalname);
+        }
+    })
+}).fields([
+    { name: 'caraImgLocation', maxCount: 100 },
+    { name: 'locationImg', maxCount: 100 }
+]);
+
+
 
 
 

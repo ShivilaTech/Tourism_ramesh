@@ -1,3 +1,4 @@
+const { default: mongoose } = require('mongoose');
 const addModel = require('../model/add.model')
 
 exports.add = async (req, res) => {
@@ -51,12 +52,15 @@ exports.update = async (req, res) => {
                message: `please select image`,
           });
      const displayPhoto = req.file.filename;
-     await addModel.findOneAndUpdate({
-          _id: id,
-          name: name,
-          url: url,
-          image_url: displayPhoto
-     })
+     await addModel.findByIdAndUpdate(
+          { _id: id, },
+          {
+               $set: {
+                    name: name,
+                    url: url,
+                    image_url: displayPhoto
+               }
+          })
 
           .then((success) => {
                return res.json({
@@ -80,6 +84,25 @@ exports.getAll = async (req, res) => {
                     status: true,
                     message: "all add",
                     data: success
+               })
+          })
+          .catch((error) => {
+               return res.json({
+                    status: true,
+                    message: "something went wrong",
+                    data: error
+               })
+          })
+}
+exports.delete = async (req, res) => {
+     const { id } = req.body
+
+     await addModel.findByIdAndDelete({ _id: mongoose.Types.ObjectId(id) })
+          .then((success) => {
+               return res.json({
+                    status: true,
+                    message: "add deleted successfully",
+                    // data: success
                })
           })
           .catch((error) => {
