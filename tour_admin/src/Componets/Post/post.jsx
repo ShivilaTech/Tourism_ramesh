@@ -41,7 +41,7 @@ const Post = () => {
   const handleDeleteRow = async (id) => {
     try {
       console.log("Deleting item with ID:", id);
-      const response = await axios.post('https://travel-d57k.onrender.com/user/post/delete', { postId: id });
+      const response = await axios.post('http://localhost:4000/user/post/delete', { postId: id });
       showNotification(response.data.message, "Success");
       fetchData();
     } catch (error) {
@@ -57,7 +57,7 @@ const Post = () => {
   }, []);
   const fetchData = async () => {
     try {
-      const response = await axios.get('https://travel-d57k.onrender.com/user/post/all');
+      const response = await axios.get('http://localhost:4000/user/post/all');
       console.log("Status:", response.status);
 
       // Check for a successful response (status code 200-299)
@@ -88,7 +88,7 @@ const Post = () => {
               <tr key={item._id}>
                 <td>{item?.userDetails && item?.userDetails[0]?.first_name}</td>
                 <td>
-                  {<img src={`https://travel-d57k.onrender.com/posts/${item.postUrl}`} alt={item.location_name} style={{ width: '100px' }} />}
+                  {<img src={`http://localhost:4000/posts/${item.postUrl}`} alt={item.location_name} style={{ width: '100px' }} />}
                 </td>
 
                 <td>{item.caption}</td>

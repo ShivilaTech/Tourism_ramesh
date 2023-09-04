@@ -14,12 +14,15 @@ import Login from './login signup/Login.jsx'
 import Comment from './comment/Comment'
 import AboutAdmin from './about/AboutAdmin'
 import Post from './Post/post';
+import Review from './review/Review';
+import AddState from './add page/Add State';
 const Allroutes = () => {
   return (
     <>
       <Routes>
 
         {localStorage.getItem("user") && <Route path='/' element={<Images />} />}
+        <Route path='/addState' element={<AddState />} />
         <Route path='/images' element={<Images />} />
         <Route path='/birHorizons' element={<BirHorizons />} />
         <Route path='/UltimateTextileBrand' element={<UltimateTextile />} />
@@ -34,6 +37,7 @@ const Allroutes = () => {
         <Route path='/comment' element={<Comment />} />
         <Route path='/post' element={<Post />} />
         <Route path='/aboutAdmin' element={<AboutAdmin />} />
+        <Route path='/review' element={<Review />} />
 
       </Routes>
 

@@ -28,7 +28,7 @@ const User = () => {
   }, [])
   console.log(contact);
   const loadContact = async () => {
-    const { data } = await axios.post(`https://travel-d57k.onrender.com/contact/getAll`,
+    const { data } = await axios.post(`http://localhost:4000/contact/getAll`,
     )
     if (data.status === true) {
       console.log(data.data, "data")

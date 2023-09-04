@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import './ModalAdsTable.css';
 import axios from 'axios';
 import { v4 as uuidv4 } from 'uuid';
-import showNotification from '../../helpers/show_notification';
 
 const ModalAdsTable = ({ onClose }) => {
   const [data, setData] = useState([]);
@@ -49,7 +48,6 @@ const ModalAdsTable = ({ onClose }) => {
     setEditedFormData(id);
 
     setEditingTeamMember(true)
-
 
     setData((prevData) =>
       prevData.map((item) =>
@@ -104,7 +102,6 @@ const ModalAdsTable = ({ onClose }) => {
 
       // Check for a successful response (status code 200-299)
       if (response.status >= 200 && response.status < 300) {
-        showNotification("added successfully", "Success")
         window.alert(response.data.message)
         fetchData();
       } else {
@@ -130,7 +127,6 @@ const ModalAdsTable = ({ onClose }) => {
 
 
 
-  
   const handleImageChange = (e) => {
     const file = e.target.files[0];
     setFormData((prevFormData) => ({ ...prevFormData, team: file }));
@@ -151,7 +147,6 @@ const ModalAdsTable = ({ onClose }) => {
       console.log("formDataToSend", formDataToSend)
       const response = await axios.post('http://localhost:4000/adds/update', formDataToSend);
       if (response.status >= 200 && response.status < 300) {
-        showNotification("updated successfully", "Success")
         setEditingTeamMember(false)
         window.alert(response.data.message);
         // Reload the team data after successful update
@@ -173,7 +168,6 @@ const ModalAdsTable = ({ onClose }) => {
 
       // Check for a successful response (status code 200-299)
       if (response.status >= 200 && response.status < 300) {
-        showNotification("deleted successfully", "Success")
         fetchData(); // Fetch data again after successful deletion
       } else {
         throw new Error('Network response was not ok.');
@@ -296,7 +290,7 @@ const ModalAdsTable = ({ onClose }) => {
 
                 <td>
 
-                  <img src={item.image_url} style={{ width: '100px' }} />
+                  <img src={`http://localhost:4000/add/${item.image_url}`} style={{ width: '100px' }} />
 
                 </td>
                 <td>

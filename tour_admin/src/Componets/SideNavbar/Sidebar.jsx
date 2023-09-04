@@ -32,11 +32,12 @@ const Sidebar = () => {
         <Link to='/Contact' style={{ textDecoration: 'none', color: 'white' }}><p>Contact Us</p>  </Link>
 
         <Link to='/comment' style={{ textDecoration: 'none', color: 'white' }}><p>Comment</p>  </Link>
+        <Link to='/review' style={{ textDecoration: 'none', color: 'white' }}><p>Review</p>  </Link>
         <Link to='/Adventure' style={{ textDecoration: 'none', color: 'white' }}><p>Adventure  </p>  </Link>
         <Link to='/post' style={{ textDecoration: 'none', color: 'white' }}><p>Feed/Post </p>  </Link>
         <Link to='/Contents' style={{ textDecoration: 'none', color: 'white' }}><p>Contents</p>  </Link>
         <Link to='/Ads' style={{ textDecoration: 'none', color: 'white' }}><p>Ads</p>  </Link>
-
+        <Link to='/addState' style={{ textDecoration: 'none', color: 'white' }}><p>Add state data</p>  </Link>
         <Link to='/aboutAdmin' style={{ textDecoration: 'none', color: 'white' }}><p>About</p>  </Link>
         {!localStorage.getItem('user') ? <Link to='/' style={{ textDecoration: 'none', color: 'white' }}><p>Login</p>  </Link> : <Link to='/' style={{ textDecoration: 'none', color: 'white' }} onClick={handleLogout}><p>Logout</p>  </Link>}
       </div>

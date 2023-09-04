@@ -15,14 +15,14 @@ const Contact = () => {
     e.preventDefault();
 
     try {
-      const { data } = await axios.post(`https://travel-d57k.onrender.com/contact/update`, {
-        id: "64be1c01f97339d830791fde",
+      const { data } = await axios.post(`http://localhost:4000/contact/update`, {
+        id: "64ed9d16473760a100fba83f",
         phone: phone,
         whatsapp: whatsapp,
         email: email
       },)
-      showNotification("updated successfully", "Success")
-      window.location.reload();
+      // showNotification("updated successfully", "Success")
+      // window.location.reload();
       console.log(data);
       // Optionally, you can handle success/failure or show a message to the user upon successful form submission.
     } catch (error) {

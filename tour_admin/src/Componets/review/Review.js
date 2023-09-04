@@ -1,18 +1,18 @@
 import React, { useState } from 'react';
-import "./comment.css"
+import "./review.css"
 import axios from 'axios';
 import { useEffect } from 'react';
 import showNotification from '../../helpers/show_notification';
 
-const Comment = () => {
+const Review = () => {
   const [data, setData] = useState();
   const [userId, setUserId] = useState();
   useEffect(() => {
-    loadComment();
+    loadReview();
   }, [])
-  const loadComment = async () => {
+  const loadReview = async () => {
 
-    const { data } = await axios.post(`http://localhost:4000/user/comment/getAll`,
+    const { data } = await axios.get(`http://localhost:4000/review/getall`,
     )
     console.log(data.success, "jk");
     if (data.status === true) {
@@ -28,12 +28,12 @@ const Comment = () => {
 
 
   const handleRemove = async (id) => {
-    const { data } = await axios.post(`http://localhost:4000/user/comment/delete`, { userId: userId, commentId: id },
+    const { data } = await axios.delete(`http://localhost:4000/review/delete/${id}`,
     )
     console.log(data.success, "jk");
     if (data.status === true) {
       showNotification("deleted successfully", "Success")
-      loadComment();
+      loadReview();
     }
     else {
       showNotification(data.message, "Error")
@@ -46,7 +46,7 @@ const Comment = () => {
       <thead>
         <tr className='tr'>
           <th >User</th>
-          <th>Comment</th>
+          <th>Review</th>
           <th>Actions</th>
         </tr>
       </thead>
@@ -54,12 +54,10 @@ const Comment = () => {
         {data && data.map((item) => (
 
           <tr className='tra' key={item.id}>
-            <td>{item.userId}</td>
-            <td>{item.comment}</td>
+            <td>{item.userId?.first_name}</td>
+            <td>{item.caption}</td>
             <td>
-              <div onClick={() => {
-                setUserId(item.userId)
-              }}>
+              <div>
                 <button className='button' onClick={() => {
                   handleRemove(item._id)
                 }}>Remove</button>
@@ -72,4 +70,4 @@ const Comment = () => {
   );
 };
 
-export default Comment;
+export default Review;

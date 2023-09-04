@@ -7,10 +7,11 @@ import Allroutes from './Componets/Allroutes';
 
 function App() {
   return (
-    <>
+    <> 
       <BrowserRouter>
         <div className='mainAppDiv'>
-        {/* <Sidebar /> */}
+
+          {/* {<Sidebar />} */}
           { localStorage.getItem('user') ?<Sidebar />:""}
           <Allroutes />
 

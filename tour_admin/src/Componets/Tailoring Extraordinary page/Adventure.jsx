@@ -14,8 +14,8 @@ const Adventure = () => {
 
     {
       id: 1,
-      name: 'Aghori',
 
+      name: 'Aghori',
       imageUrl: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT7TG_gnIWcJDShUfM4p9zvHiPSVvHSajp5k7Nhv9tGsbrw0pHjzGLWg8Dr4eRbDcRwpo0&usqp=CAU',
       locUrl: 'https://gaana.com/podcast/ek-kahani-aisi-bhi-season-1',
     },
@@ -41,7 +41,7 @@ const Adventure = () => {
   const handleDeleteRow = async (id) => {
     try {
       console.log("Deleting item with ID:", id);
-      const response = await axios.post('https://travel-d57k.onrender.com/adventure/delete', { id: id });
+      const response = await axios.post('http://localhost:4000/adventure/delete', { id: id });
       showNotification(response.data.message, "Success");
       fetchData();
     } catch (error) {
@@ -57,7 +57,7 @@ const Adventure = () => {
   }, []);
   const fetchData = async () => {
     try {
-      const response = await axios.post('https://travel-d57k.onrender.com/adventure/getall');
+      const response = await axios.post('http://localhost:4000/adventure/getall');
       console.log("Status:", response.status);
 
       // Check for a successful response (status code 200-299)
@@ -88,7 +88,7 @@ const Adventure = () => {
               <tr key={item._id}>
                 <td>{item.location_name}</td>
                 <td>
-                  {<img src={`https://travel-d57k.onrender.com/adventure/${item.image_url}`} alt={item.location_name} style={{ width: '100px' }} />}
+                  {<img src={`http://localhost:4000/adventure/${item.image_url}`} alt={item.location_name} style={{ width: '100px' }} />}
                 </td>
 
                 <td>{item.location_url}</td>

@@ -27,7 +27,7 @@ const SimpleCarousel = () => {
   console.log(images);
   const loadslider = async () => {
 
-    const { data } = await axios.post(`https://travel-d57k.onrender.com/slider/getAll`,
+    const { data } = await axios.post(`http://localhost:4000/slider/getAll`,
     )
     console.log(data.status, "jk");
     if (data.status === true) {
@@ -67,7 +67,7 @@ const SimpleCarousel = () => {
 
 
     try {
-      const response = await axios.post(`https://travel-d57k.onrender.com/slider/add`, formData, {
+      const response = await axios.post(`http://localhost:4000/slider/add`, formData, {
         headers: {
           'Content-Type': 'multipart/form-data'
         }
@@ -88,7 +88,7 @@ const SimpleCarousel = () => {
 
   };
   const removeImage = async (id) => {
-    const { data } = await axios.post(`https://travel-d57k.onrender.com/slider/delete`, { id: id },
+    const { data } = await axios.post(`http://localhost:4000/slider/delete`, { id: id },
     )
     console.log(data.success, "jk");
     if (data.status === true) {
@@ -111,7 +111,7 @@ const SimpleCarousel = () => {
               <Carousel.Item key={index}>
                 <div className="imgs">
                   <img
-                    src={`https://travel-d57k.onrender.com/slider/${image.image_url}`}
+                    src={`http://localhost:4000/slider/${image.image_url}`}
                     alt={`Review ${index + 1}`}
                     style={{ width: "100%", height: "auto" }}
                   />
