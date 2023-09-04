@@ -32,7 +32,7 @@ function UpdatePost() {
     formData.append('photo', photo);
 
     try {
-      const response = await axios.post(`https://travel-d57k.onrender.com/user/post/add/${userId}`, formData);
+      const response = await axios.post(`http://137.184.22.70:3008/user/post/add/${userId}`, formData);
       console.log(response.data); // Do something with the response if needed
     } catch (error) {
       console.error(error);

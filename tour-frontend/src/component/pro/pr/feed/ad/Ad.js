@@ -1,8 +1,34 @@
-import React from 'react'
+import React , {useState, useEffect}from 'react'
 import Styles from "./ad.module.css"
-import Ad1 from "./shivila.png"
 
+import axios from 'axios'
+import Ad1 from "./shivila.png"
+import ScrollAd from '../../../../home/ScrollAd/ScrollAd'
 const Ad = () => {
+  const [imagaa ,setImagaa] = useState([]);
+  const [data, setData] = useState();
+  const [imges , setImges] = useState([]);
+  const loadAdds = async () => {
+
+    const { data } = await axios.post(`http://137.184.22.70:3008/adds/getAll`,
+    )
+    console.log(data.status, "jk");
+    if (data.status === true) {
+      console.log(data.data, "data")
+      setImagaa(data.data);
+    }
+    else {
+      console.log(data.message, "datahjbhkb")
+
+    }
+
+  };
+  useEffect(() => {
+   loadAdds();
+  // Ad();
+     
+  }, [])
+  console.log('imagaa31' ,imagaa)
   return (
     <div>
       <div className={Styles.marquee}>
@@ -14,8 +40,19 @@ const Ad = () => {
         <p>Contact</p>
         <p> with</p>
         &nbsp;
-        <img src={Ad1} alt="" height={40} width={100}/>
-      </div>
+       
+        {
+  imagaa &&
+  imagaa.map((i) => {
+    if (i.name == 'andhra') {
+      return (
+       <img height={80} width={300} src={`http://137.184.22.70:3008/add/${i.image_url}`}/>
+      );
+    }
+    return null; // Return null for other cases
+  })
+}
+        </div>
     </div>
     </div>
   )

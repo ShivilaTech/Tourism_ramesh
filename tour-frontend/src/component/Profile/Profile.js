@@ -61,7 +61,7 @@ const Profile = () => {
     formData.append('profile_image', photo);
 
     try {
-      const response = await axios.post(`https://travel-d57k.onrender.com/user/upload-profile/${userId}`, formData);
+      const response = await axios.post(`http://137.184.22.70:3008/user/upload-profile/${userId}`, formData);
       console.log(response.data);
       localStorage.setItem("profile_images", response.data.data.profile_images);
       console.log(localStorage);

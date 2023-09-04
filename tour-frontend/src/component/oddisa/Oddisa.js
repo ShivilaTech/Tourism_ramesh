@@ -29,7 +29,10 @@ const Odisha = () => {
   return (
     <>
         
-
+      <br />
+      <div className='banner2'>
+        <p className='tourTitles'>Tourism to Odisha</p>
+    </div>
         <Swiper style={{position:'relative',zIndex:-1}}
         slidesPerView={1}
         spaceBetween={30}
@@ -56,9 +59,7 @@ const Odisha = () => {
       
     
     
-    <div className='banner2'>
-        <p className='tourTitles'>Tourism to Odisha</p>
-    </div>
+    
     <div>
         <article class="oddnewspaper">
         Odisha has sea of opportunities for those wanting to give this destination in east India a try. The opulent state proffers unforgettable experiences. From offering an enthralling experience of exploring the wild to attaining peace of mind during a pilgrimage tour, and from losing oneself in the history of the state to basking on the surreal beaches, Odisha things to do list is overwhelming, and hence, one holiday cannot be enough here.
@@ -79,9 +80,9 @@ Yes, the lake is a perfect destination for the nature lovers looks for an escape
         </div>
 
         <div className='oddcatogaryDiv'>
+            <img src={oditemple} alt="" className='oddimages'/>
             <p className='textWBCat'>Temples: Jagannath Temple,Maa Tara Tarini Temple ,Sun Temple,Lingaraja Temple,Brahmeswara Temple ,Gundicha Temple ,Mukteswara Temple ,Parsurameswara Temple,Rajarani Temple,Vaital Deula ,Ram Mandir 
             </p>
-            <img src={oditemple} alt="" className='oddimages'/>
 
         </div>
 
@@ -91,10 +92,10 @@ Yes, the lake is a perfect destination for the nature lovers looks for an escape
         </div>
 
         <div className='oddcatogaryDiv'>
-            <p className='textWBCat'>
-            Palaces: Kurma ,Langudi,Lalitgiri,Balsore,Khiching etc
-            </p>
             <img src={odiplace} alt=""className='oddimages' />
+            <p className='textWBCat'>
+            Palaces: Kurma , Langudi, Lalitgiri, Balsore, Khiching etc
+            </p>
 
         </div>
     </div>

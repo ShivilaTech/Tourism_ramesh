@@ -76,6 +76,9 @@
         border-radius: 10px;
     }
 
+    .textarunachalCat{
+        font-size: 15px;
+    }
     
 }
 
@@ -103,6 +106,10 @@
         height: 250px;
         width: 100%;
         border-radius: 10px;
+    }
+
+    .textarunachalCat{
+        font-size: 19px ;
     }
 
 }

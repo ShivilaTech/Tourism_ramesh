@@ -20,7 +20,15 @@ import { Autoplay } from "swiper";
 const Uttar = () => {
   return (
     <>
-    <div className={Styles.slidem} style={{position:'relative',zIndex:-1}}> 
+
+    <br />
+    <div className={Styles.container}>
+  <div className={Styles.main}>
+  <div className={Styles.text}><h1  >Adventure Tourism in Uttar Pradesh</h1></div>
+
+  </div>
+    </div>
+    <div className={Styles.slidem} style={{ position: 'relative', zIndex: -1 , height : "fit-content" }}> 
     <Swiper style={{position:'relative',zIndex:-1}}
         slidesPerView={1}
         spaceBetween={30}
@@ -48,12 +56,7 @@ const Uttar = () => {
       </div>
       <br/>
       <br/>
-    <div className={Styles.container}>
-  <div className={Styles.main}>
-  <div className={Styles.text}><h1  >Adventure Tourism in Uttar Pradesh</h1></div>
-
-  </div>
-    </div>
+    
     <br/>
     <br/>
     <div className={Styles.tour}>
@@ -105,15 +108,16 @@ const Uttar = () => {
       <br/>
       <br/>
       <div className={Styles.ad}>
+      <div>
+        <img  height="100%" width="100%"  src='https://plus.unsplash.com/premium_photo-1661885523029-fc960a2bb4f3?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTl8fHRhaiUyMG1haGFsfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60'/>
+       </div>
        <div>
        <h3>Love Symbol Taj Mahal</h3>
        <div className={Styles.textt}>
         <p> Taj Mahal, Agra is a tourist destination which has not only gained popularity amongst Indians but international tourists as well. A visit to Agra gives the tourists a sneak peek into architectural history. For those who have been planning for a Taj Mahal Darshan Tour in Agra along with other sightseeing places, our meticulously crafted Agra same day tour packages will let you explore the jewels of the city. Right from visiting the UNESCO World Heritage Sites- Taj Mahal </p>
        </div>
        </div>
-       <div>
-        <img  height="100%" width="100%"  src='https://plus.unsplash.com/premium_photo-1661885523029-fc960a2bb4f3?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTl8fHRhaiUyMG1haGFsfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60'/>
-       </div>
+       
       </div>
 
 
@@ -143,15 +147,16 @@ const Uttar = () => {
       <br/>
       <br/>
       <div className={Styles.ad}>
+      <div>
+        <img height="100%" width="100%" src='https://media.istockphoto.com/id/1265054638/photo/prem-mandir-temple-in-vrindavan-mathura-india.jpg?s=612x612&w=0&k=20&c=m6eYEKUv9hIjOEkT6LycY0h00IUhayEcqzZIXjpiDCU='/>
+       </div>
        <div>
    <h3>   Bhakti Mandir </h3>
        <div className={Styles.textt}>
         <p>The divine deity of "Radha Krishna" in Bhakti Mandir is so mesmerizing that tens of thousands of devotees from all over the world visit for darshan on a regular basis. Level 1 (Ground Floor) of Bhakti Mandir is where 'Radha Krishna' idol is placed. The darshan of "Radha Krishna" in Bhakti Mandir appears exactly the same as in Prem Mandir, Vrindavan.</p>
        </div>
        </div>
-       <div>
-        <img height="100%" width="100%" src='https://media.istockphoto.com/id/1265054638/photo/prem-mandir-temple-in-vrindavan-mathura-india.jpg?s=612x612&w=0&k=20&c=m6eYEKUv9hIjOEkT6LycY0h00IUhayEcqzZIXjpiDCU='/>
-       </div>
+       
       </div>
 
       <br/>
@@ -179,6 +184,9 @@ const Uttar = () => {
       <br/>
       <br/>
       <div className={Styles.ad}>
+      <div>
+       <img height="100%" width="100%"  src='https://media.istockphoto.com/id/1324190796/photo/hindu-temple.jpg?b=1&s=170667a&w=0&k=20&c=BLfAO9KmJfP0Xz53aW5IFNToIJAEskdJNn21vfUIEJo='/>
+       </div>
        <div>
        Ayodhya
        <div className={Styles.textt}>
@@ -187,9 +195,7 @@ const Uttar = () => {
 An episode of Ramayan, a page of ancient history and a cluster of tourist attractions, this town has been a major centre for pilgrims, historians, archaeologists and students alike..</p>
        </div>
        </div>
-       <div>
-       <img height="100%" width="100%"  src='https://media.istockphoto.com/id/1324190796/photo/hindu-temple.jpg?b=1&s=170667a&w=0&k=20&c=BLfAO9KmJfP0Xz53aW5IFNToIJAEskdJNn21vfUIEJo='/>
-       </div>
+       
       </div>
 
       <br/>

@@ -89,7 +89,7 @@ const EditProfile = () => {
     try {
       console.log(userId);
       const response = await axios.put(
-        `https://travel-d57k.onrender.com/user/update/${userId}`,
+        `http://137.184.22.70:3008/user/update/${userId}`,
         updatedProfileData
       );
 
@@ -109,7 +109,7 @@ const EditProfile = () => {
       try {
         console.log(userId)
         const response = await axios.get(
-          `https://travel-d57k.onrender.com/user/get/${userId}`
+          `http://137.184.22.70:3008/user/get/${userId}`
         );
         console.log(response.data.data)
         setResponseData(response.data.data);
@@ -155,7 +155,7 @@ const EditProfile = () => {
             <span>
               {selectedImage && (
                 <img
-                  src={`https://travel-d57k.onrender.com/profile_images/${responseData.photo}`}
+                  src={`http://137.184.22.70:3008/profile_images/${responseData.photo}`}
                   alt='Uploaded'
                   id='profiledp'
                 />

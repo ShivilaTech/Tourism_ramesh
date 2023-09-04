@@ -4,17 +4,30 @@
     height: 80px;
     background-color: transparent;
     border-bottom:  1px solid #eee;
-    background-image: linear-gradient(to right, #e53cc8, #b273f6, #7097ff, #1aafff, #00c1f9, #00c1f9, #00c1f9, #00c1f9, #1aafff, #7097ff, #b273f6, #e53cc8);    z-index: 10;
+    background-image: linear-gradient(to right, #b75c1b, #ffff, #4ab24b);    z-index: 10;
     display: flex;
 }
 .nimg{
     width: 70%;
     height: 100%;
-}
 
+    z-index: 20;
+    background-image: url('../../bg.jpeg');
+    align-content: center;
+} 
+
+.kid{
+  width: 120%;
+  height: 100%;
+  z-index: 10;
+  
+}
 .left{
+  /* z-index: 10; */
     width: 20%;
     height: 100%;
+  
+   /* background-color: red; */
 
 }
 .right{
@@ -46,7 +59,7 @@
   
     text-decoration: none;
     list-style-type: none; /* Remove list dots */
-   
+   margin: auto;
 }
 
 
@@ -125,7 +138,8 @@
       
       align-items: stretch;
     }
-  
+    
+
     .input {
       width: 50%;
       margin-bottom: 10px;
@@ -133,8 +147,16 @@
   } 
   @media (max-width: 760px) {
     .search {
-      
       align-items: stretch;
+    }
+
+    .hi{
+      display: none;
+    }
+   
+
+    .nimg{
+      width: 86% ;
     }
   
     .input {
@@ -148,6 +170,11 @@
       align-items: stretch;
     }
 
+
+    .nimg{
+      width: 118% ; 
+    }
+
     .input {
       width: 90%;
       margin-bottom: 10px;
@@ -157,11 +184,21 @@
     .search{
         top:0;
     }
+
+    .nimg{
+      width: 132%;
+    }
   }
+
+
   @media (max-width: 400px) {
     .search {
       
       align-items: stretch;
+    }
+
+    .nimg{
+      width: 155% ;
     }
   
     .input {
@@ -175,31 +212,9 @@
         height: 25px;
         border-radius: 10%;
       }
-      .nimg{
-        width: 80%;
-      }
+
   } 
 
-/* .search{
-    display: flex;
-    width: 100%;
-    align-items: center;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-}
-.search>input{
-    border: none;
-    padding: 8px;
-    outline: none;
-    font-size: 14px;
-}
-.search>button{
-    background-color: #ccc;
-    border: none;
-    padding: 8px 12px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-} */
 .hideh{
     display: none;
 }
@@ -257,7 +272,7 @@
 }
 
 
-@media screen and (max-width: 360px){
+@media screen and (max-width: 450px){
 
 .right{
     display: none;

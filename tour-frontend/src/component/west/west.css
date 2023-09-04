@@ -73,7 +73,7 @@
         display: flex;
         align-items: center;
         align-content: center;
-        font-size: 25px;
+        font-size: 15px;
         padding: 10px 20px;
 
 
@@ -84,7 +84,13 @@
         width: 100%;
         border-radius: 10px;
     }
+    .catogoryTitle{
+        font-size: 25px ;
+    }
 
+    .tourTitles{
+        font-size: 30px;
+    }
     
 }
 
@@ -127,4 +133,9 @@
         border-radius: 10px;
     }
 
+    .catogoryTitle{
+        font-size: 40px ;
+    }
+
 }
+

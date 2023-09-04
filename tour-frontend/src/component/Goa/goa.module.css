@@ -85,7 +85,7 @@
   }
  
   
- @media only screen and (max-width: 500px) and (min-width: 100px) {
+ @media only screen and (max-width: 700px) and (min-width: 100px) {
      
      .slidem{
          width: 98%;
@@ -111,7 +111,7 @@
      .tour{
          text-align: justify;
          width: 80%;
-         height: 1000px;
+         height: fit-content;
          margin: auto;
      }
      .ad{
@@ -150,6 +150,10 @@
          height: 300px;
          margin-top: 50px;
       }
+
+      .text>h1{
+        font-size: 28px;
+      }
     
  }
  
@@ -178,108 +182,3 @@
        
       }
    } */
-   @media (max-width: 760px) {
-     
-   }
-   @media (max-width: 650px) {
-    
-   }
-   
- @media only screen and (max-width: 970px) and (min-width: 451px) {
-     
-     
-     
- }
- @media only screen and (max-width: 450px) and (min-width: 301px) {
-   
-     
- }
- @media only screen and (max-width: 300px) and (min-width: 151px) {
-   
-     
- }
- 
-     @media only screen and (max-width: 400px) and (min-width: 100px) {
-        
-         }
- @media only screen and (max-width: 520px) and (min-width: 100px) {
-    }
- @media only screen and (max-width: 400px) and (min-width: 100px) {
-    
-   
-         
- }
- 
- 
- 
- 
- 
- @media only screen and (max-width: 1420px) and (min-width: 1081px) {
-   
- }
- @media only screen and (max-width: 1080px) and (min-width: 971px) {
-    
-   }
-   @media (max-width: 970px) {
-    
-   }
-   @media (max-width: 760px) {
-     
-   }
-   @media (max-width: 650px) {
-    
-   }
-   
- @media only screen and (max-width: 970px) and (min-width: 451px) {
-     
-     
-     
- }
- @media only screen and (max-width: 450px) and (min-width: 301px) {
-   
-     
- }
- @media only screen and (max-width: 300px) and (min-width: 151px) {
-   
-     
- }
- 
-     @media only screen and (max-width: 400px) and (min-width: 100px) {
-        
-         }
- @media only screen and (max-width: 520px) and (min-width: 100px) {
-    }
- @media only screen and (max-width: 400px) and (min-width: 100px) {
-    
-   
-         
- }
- @media only screen and (max-width: 1620px) and (min-width: 1421px) {
-     .swiper {
-       right: -10%;
-      
-     }
- }
- @media only screen and (max-width: 970px) and (min-width: 760px) {
-   .swiper {
-     right: -100%;
-    
-   }
- }
- @media only screen and (max-width: 760px) and (min-width: 650px) {
-   .swiper {
-     right: -80%;
-    
-   }
- }
- @media only screen and (max-width: 650px) and (min-width: 100px) {
-   .swiper {
-     right: -40%;
-    
-   }
- }
- @media only screen and (max-width: 520px) and (min-width: 100px) {
-   .swiper {
-     right: -10%;
-    
-   }}

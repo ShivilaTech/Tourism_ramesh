@@ -42,7 +42,7 @@ const name = localStorage.getItem('first_name')
 
   const fetchData = async () => {
     try {
-      const response = await axios.get('https://travel-d57k.onrender.com/user/post/all');
+      const response = await axios.get('http://137.184.22.70:3008/user/post/all');
       console.log(response.data.data); // Log response.data instead of response
       setFeeds(response.data.data); // Assuming the response data is an array of post objects
       // Assuming the response data is an array of post objects
@@ -62,7 +62,7 @@ const name = localStorage.getItem('first_name')
         body: `your post liked by ${name}`
       }
       console.log(obj);
-      const response1 = await axios.post('https://travel-d57k.onrender.com/notification/add',obj);
+      const response1 = await axios.post('http://137.184.22.70:3008/notification/add',obj);
       console.log(response1.data,"notification"); 
       
     } catch (error) {
@@ -75,7 +75,7 @@ const name = localStorage.getItem('first_name')
 
       try {
         const response = await axios.post(
-          'https://travel-d57k.onrender.com/user/post/like/add',
+          'http://137.184.22.70:3008/user/post/like/add',
           {
             userId: userId,
             postId: post._id,
@@ -107,7 +107,7 @@ const name = localStorage.getItem('first_name')
 
 
         const response = await axios.delete(
-          'https://travel-d57k.onrender.com/user/post/like/remove',
+          'http://137.184.22.70:3008/user/post/like/remove',
           {
             data: {
               userId: userId,
@@ -151,7 +151,7 @@ const name = localStorage.getItem('first_name')
             <Avatar sx={{ bgcolor: 'red', border: 'black' }} aria-label="recipe">
   {feed.userDetails?.[0]?.photo && (
     <img
-      src={`http://35.78.201.111:3008/profile_images/${feed.userDetails[0].photo}`}
+      src={`http://137.184.22.70:3008/profile_images/${feed.userDetails[0].photo}`}
       alt={feed.userDetails?.[0]?.first_name?.charAt(0).toUpperCase()}
     />
   )}
@@ -169,7 +169,7 @@ const name = localStorage.getItem('first_name')
         <CardMedia
           component="img"
           height="100%"
-          image={`https://travel-d57k.onrender.com/posts/${feed.postUrl}`}
+          image={`http://137.184.22.70:3008/posts/${feed.postUrl}`}
           alt={feed.caption}
         />
         <CardContent>
@@ -256,7 +256,7 @@ const name = localStorage.getItem('first_name')
 //   useEffect(() => {
 //     const fetchData = async () => {
 //       try {
-//         const response = await axios.get('https://travel-d57k.onrender.com/user/post/all');
+//         const response = await axios.get('http://137.184.22.70:3008/user/post/all');
 //         console.log(response.data.data); // Log response.data instead of response
 //         setFeeds(response.data.data); // Assuming the response data is an array of post objects
 //       } catch (error) {
@@ -279,7 +279,7 @@ const name = localStorage.getItem('first_name')
 //       try {
 //         console.log("add");
 //         const response = await axios.post(
-//           'https://travel-d57k.onrender.com/user/post/like/add',
+//           'http://137.184.22.70:3008/user/post/like/add',
 //           {
 //             userId: userId,
 //             postId: postId,
@@ -314,7 +314,7 @@ const name = localStorage.getItem('first_name')
 //         console.log(userId);
 //         console.log(postId);
 //         const response = await axios.post(
-//           'https://travel-d57k.onrender.com/user/post/like/remove',
+//           'http://137.184.22.70:3008/user/post/like/remove',
 //           {
 //             userId: userId,
 //             postId: postId,
@@ -357,7 +357,7 @@ const name = localStorage.getItem('first_name')
 //           avatar={
 //             <Avatar sx={{ bgcolor: 'red', border: 'black' }} aria-label="recipe">
 //               {feed.userDetails?.[0]?.photo ? (
-//                 <img src={`http://35.78.201.111:3008/profile_images/${feed.userDetails[0].photo}`} alt="Avatar" />
+//                 <img src={`http://137.184.22.70:3008/profile_images/${feed.userDetails[0].photo}`} alt="Avatar" />
 //               ) : (
 //                 feed.userDetails?.[0]?.first_name?.charAt(0).toUpperCase()
 //               )}
@@ -375,7 +375,7 @@ const name = localStorage.getItem('first_name')
 //         <CardMedia
 //           component="img"
 //           height="100%"
-//           image={`http://35.78.201.111:3008/posts/${feed.postUrl}`}
+//           image={`http://137.184.22.70:3008/posts/${feed.postUrl}`}
 //           alt={feed.caption}
 //         />
 //         <CardContent>

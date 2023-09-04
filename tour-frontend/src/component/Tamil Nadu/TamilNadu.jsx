@@ -34,9 +34,12 @@ const TamilNadu = () => {
 
   return (
     <>
-    
+    <br />
+    <div className='banner8'>
+        <p className='tourTitles'>Tourism to Tamil Nadu</p>
+    </div>  
 
-    <Swiper style={{position:'relative',zIndex:-1}}
+    <Swiper style={{position:'relative',zIndex:-1 , height : "fit-content"}}
         slidesPerView={1}
         spaceBetween={30}
         loop={true}
@@ -60,9 +63,7 @@ const TamilNadu = () => {
   
       </Swiper>
     
-    <div className='banner8'>
-        <p className='tourTitles'>Tourism to Tamil Nadu</p>
-    </div>
+    
     <div>
         <article class="tnnewspaper">
         Tamil Nadu has the largest tourism industry in India with a percentage share of 21.31% and 21.86% of domestic and foreign tourist visits in the country. According to the 2020 Ministry of Tourism report, the number of domestic arrivals was at 494.8 million making the state the second most popular tourist destination in the country, and foreign arrivals numbered 6.86 million, the highest in the country, making it the most popular state for tourism in the country.[1]
@@ -81,8 +82,8 @@ In the modern times, the Portuguese and French also ruled the area. By the 17th 
             <p className='textWBCat'>Temples:Bala Murugan Temple,Arulmigu Brahmapureeswarar Temple, Uchippillaiyar Temple,Meenakshi Amman Temple, Sripuram Golden Temple,Bala Murugan temple,Navagraha temples,Kumbakonam Brahma Temple ,Ekambareswarar Temple,Ramanathaswamy Temple ,Kapaleeshwarar Temple, Elk Hill Murugan Temple,Nagaraja Temple,</p> </div>
 
         <div className='tncatogaryDiv'>
-            <p className='textWBCat'>Beaches & Lakes:Marina Beach,Kunthukal Beach,Mahabalipuram Beach,Mathu Nagar Beach,Marakkanam Beach,Pulicat Lake,Punganoor Lake, Pykara, Avalanche Lake,Berijam Lake, Kodaikanal Lake,  </p>
             <img src={piv002} alt="" className='tnimages'/>
+            <p className='textWBCat'>Beaches & Lakes:Marina Beach,Kunthukal Beach,Mahabalipuram Beach,Mathu Nagar Beach,Marakkanam Beach,Pulicat Lake,Punganoor Lake, Pykara, Avalanche Lake,Berijam Lake, Kodaikanal Lake,  </p>
 
         </div>
 
@@ -91,9 +92,9 @@ In the modern times, the Portuguese and French also ruled the area. By the 17th 
             <p className='textWBCat'> Waterfalls & Hills:Pambar Fall,Papanasam Fall,Silver Cascade Fall,Puliyancholai Waterfall,Suruli Fall,Kalhatti Waterfall,Manimuthar Fall,Kumbakarai Fall,Megam Fall,The Cardamom Hill, The Palamathi Hills,Tiger Hill, Yelagiri Hill,Cairn Hill,Jawadhu Hill,Kalvarayan Hill, Kolli Hills </p> </div>
 
         <div className='tncatogaryDiv'>
+            <img src={pic007} alt=""className='tnimages' />
             <p className='textWBCat'>
             Palaces & Fort:Kattabommm Memorial Fort,Padmanabhapuram Palace,Thirumalai Nayakar Mahal, Vattakottai Fort, Vellore Fort,Alamparai Fort,Fort St. George, Sankagiri Fort,Gingee Fort </p>
-            <img src={pic007} alt=""className='tnimages' />
 
         </div>
 

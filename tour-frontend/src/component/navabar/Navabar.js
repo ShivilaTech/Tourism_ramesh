@@ -6,7 +6,7 @@ import { GrClose } from 'react-icons/gr';
 
 import { Box, Tooltip, IconButton, Avatar, colors } from "@mui/material";
 import Styles from "./navabar.module.css"
-import trip from "../image/trip.svg"
+import trip from "../../logo10-removebg-preview.png"
 import { Link } from 'react-router-dom'
 import { GiHamburgerMenu } from 'react-icons/gi';
 import { FaBars } from 'react-icons/fa';
@@ -121,7 +121,7 @@ const Navbar = () => {
     try {
       console.log(userId)
       const response = await axios.post(
-        `https://travel-d57k.onrender.com/notification/get`, {
+        `http://137.184.22.70:3008/notification/get`, {
         userId: userId,
         key: 1
       }
@@ -137,7 +137,7 @@ const Navbar = () => {
     try {
       console.log(userId)
       const response = await axios.post(
-        `https://travel-d57k.onrender.com/notification/mark-read`, {
+        `http://137.184.22.70:3008/notification/mark-read`, {
         userId: userId,
         notificationId: id
       }
@@ -323,7 +323,7 @@ const Navbar = () => {
                 onMouseLeave={handleMouseLeave}
                 className="dropdown"
               >
-                <button className="dropdown-toggle" style={{ borderRadius: '15px' }}>search by state</button>
+                <button className="dropdown-toggle" style={{ borderRadius: '15px', width: "fit-content" }}>Search By State</button>
 
                 {isOpen && (
                   <div className={Styles.dropdownmenu}>

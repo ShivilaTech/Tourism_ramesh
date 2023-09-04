@@ -2,7 +2,7 @@
     color:black;
      width: 100%;
      font-family: 	Rockwell Extra Bold;
- 
+  
  }
  
  .text>h1{
@@ -85,7 +85,7 @@
   }
  
   
- @media only screen and (max-width: 500px) and (min-width: 100px) {
+ @media only screen and (max-width: 900px) and (min-width: 100px) {
      
      .slidem{
          width: 98%;
@@ -111,7 +111,7 @@
      .tour{
          text-align: justify;
          width: 80%;
-         height: 1000px;
+         height: fit-content;
          margin: auto;
      }
      .ad{
@@ -149,6 +149,10 @@
       .andhraimg{
          height: 300px;
          margin-top: 50px;
+      }
+
+      .text>h1{
+        font-size: 30px ;
       }
     
  }

@@ -232,7 +232,7 @@ const PostItem = ({ post }) => {
 
       <div className={Styles.container}>
         <div>
-          <p><a href={post.location_url} target='_blank'><img width="300px" height="300px" src={`https://travel-d57k.onrender.com/adventure/${post.image_url}`} /></a></p>
+          <p><a href={post.location_url} target='_blank'><img width="300px" height="300px" src={`http://137.184.22.70:3008/adventure/${post.image_url}`} /></a></p>
           <h3>{post.location_name}</h3>
 
           <button onClick={handleLike}><FcLike /> ({likes})</button>
@@ -267,7 +267,7 @@ const Advanture = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.post('https://travel-d57k.onrender.com/adventure/getall');
+        const response = await axios.post('http://137.184.22.70:3008/adventure/getall');
         console.log(response.data.data); // Log response.data instead of response
         setPostData(response.data.data); // Assuming the response data is an array of post objects
       } catch (error) {
@@ -305,7 +305,7 @@ const Advanture = () => {
     formData.append('adventure', uploadedImage);
 
     try {
-      const response = await axios.post(`https://travel-d57k.onrender.com/adventure/add`, formData, {
+      const response = await axios.post(`http://137.184.22.70:3008/adventure/add`, formData, {
         headers: {
           'Content-Type': 'multipart/form-data'
         }

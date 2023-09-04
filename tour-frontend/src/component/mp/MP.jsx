@@ -31,7 +31,11 @@ const MP = () => {
 
   return (
     <>
+    <br />
 
+    <div className='banner5'>
+        <p className='tourTitles'>Tourism to Madhya Pradesh</p>
+    </div>
 <Swiper style={{position:'relative',zIndex:-1}}
         slidesPerView={1}
         spaceBetween={30}
@@ -57,9 +61,7 @@ const MP = () => {
       </Swiper>
     
     
-    <div className='banner5'>
-        <p className='tourTitles'>Tourism to Madhya Pradesh</p>
-    </div>
+    
     <div>
         <article class="mpnewspaper">
         Madhya Pradesh - A very Heart of !ncredible India, is a blend of history and modernization. Plan a trip to Madhya Pradesh to witness the Vast Species of wildlife in National Parks and Wildlife Santuries, religious Places and heritage locations. The state is a complete package of attractions that are spotted in different parts of India. People who want to see the diverse side of India, Madhya Pradesh is a must visit.
@@ -79,9 +81,9 @@ Chintaman Ganesh Temple,Matangeshwar Temple,Annapurna Temple, Lakshmana Temple,J
         </div>
 
         <div className='mpcatogaryDiv'>
+            <img src={mpmousem} alt="" className='mpimages'/>
             <p className='textWBCat'>Museums: Bharat Bhavan,Indira Gandhi Rashtriya Manav Sangrahalaya,Tribal Museum Bhopal,Rani Durgawati Museum,Maharaja Chhatrasal Museum,Vidisha Museum
          </p>
-            <img src={mpmousem} alt="" className='mpimages'/>
 
         </div>
 
@@ -91,10 +93,10 @@ Chintaman Ganesh Temple,Matangeshwar Temple,Annapurna Temple, Lakshmana Temple,J
         </div>
 
         <div className='mpcatogaryDiv'>
+            <img src={mppalce} alt=""className='mpimages' />
             <p className='textWBCat'>
             Palaces: Mansingh Palace,Jai Vilas Palace,Jahangir Mahal,Jahaz Mahal,Sheesh Mahal,Hindola Mahal etc
             </p>
-            <img src={mppalce} alt=""className='mpimages' />
 
         </div>
 

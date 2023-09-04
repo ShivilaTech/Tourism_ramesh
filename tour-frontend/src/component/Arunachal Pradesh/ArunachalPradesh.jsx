@@ -16,7 +16,12 @@ import { Autoplay } from "swiper";
 const ArunachalPradesh = () => {
   return (
     <>
-<div style={{position:'relative',zIndex:-1}}>
+    <br />
+
+    <div className='banner11'>
+            <p className='tourTitles'>Tourism to Arunanchal Pradesh</p>
+        </div>
+<div style={{position:'relative',zIndex:-1 , height : "fit-content"}}>
     <Swiper
             slidesPerView={1}
             spaceBetween={30}
@@ -39,9 +44,7 @@ const ArunachalPradesh = () => {
           </Swiper>  </div>
         
         
-        <div className='banner11'>
-            <p className='tourTitles'>Tourism to Arunanchal Pradesh</p>
-        </div>
+       
         <div>
             <article class="arunachalnewspaper">
             Arunanchal Pradesh - A very Heart of !ncredible India, is a blend of history and modernization. Plan a trip to ArunanchalPradesh to witness the Vast Species of wildlife in National Parks and Wildlife Santuries, religious Places and heritage locations. The state is a complete package of attractions that are spotted in different parts of India. People who want to see the diverse side of India, ArunanchalPradesh is a must visit.
@@ -59,8 +62,8 @@ const ArunachalPradesh = () => {
             </div>
     
             <div className='arunachalcatogaryDiv'>
-                <p className='textarunachalCat'>Mountain:Kangtö,Nyegyi Kansang,Chiumo,Hkakabo Razi,Namjagbarwa Peak,     </p>
                 <img src={auroMoutain} alt="" className='arunachalimages'/>
+                <p className='textarunachalCat'>Mountain:Kangtö, Nyegyi Kansang, Chiumo, Hkakabo Razi, Namjagbarwa Peak</p>
     
             </div>
     
@@ -71,9 +74,9 @@ const ArunachalPradesh = () => {
     
             <div className='arunachalcatogaryDiv'>
     
+                <img src={auroForst} alt=""className='arunachalimages' />
                 <p className='textarunachalCat'>
                 Wild Life: Namdapha National Park & Tiger Reserve,Mouling National Park,Itanagar wildlife sanctuary,Dibang wildlife,The Mehao Wildlife Sanctuary,The Pakke Tiger Reserve,</p>
-                <img src={auroForst} alt=""className='arunachalimages' />
 
     
             </div>

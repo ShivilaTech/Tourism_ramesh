@@ -23,7 +23,7 @@ import oddisa from "../image/oddisa.jfif"
 import andhra from "../image/andhra.jpg"
 import list from "../image/list.jpg"
 import charminar from '../pic/BannerTelangana.jpg';
-import {Link} from "react-router-dom";
+import { Link } from "react-router-dom";
 
 import pic01 from './picss/pic01.webp';
 import pic02 from './picss/pic02.jpeg';
@@ -77,6 +77,14 @@ import tel1 from '../pic/PalacesTelanagana.jpg';
 import tel2 from '../pic/WaterfallsTelangana.jpg';
 import tel3 from '../pic/BannerTelangana.jpg';
 
+//chhattisgarh
+import chhattisgarh1 from '../Chhattisgarh/pic/Chitrakot_waterfalls.jpeg';
+import chhattisgarh2 from '../Chhattisgarh/pic/EvnJ4pyVoAgF9_W.jpg';
+import chhattisgarh3 from '../Chhattisgarh/pic/download.jpeg';
+
+
+
+
 //goa
 
 import goa1 from '../picc/p1.jpg';
@@ -113,9 +121,15 @@ import tn3 from '../Tamil Nadu/img/pic005.jpg';
 
 //bihr
 
-import bihar1 from  "../images/bihar1.jpg"
-import bihar2 from  "../images/bihar2.jpg"
-import bihar3 from  "../images/bihar3.jpg"
+import bihar1 from "../images/bihar1.jpg"
+import bihar2 from "../images/bihar2.jpg"
+import bihar3 from "../images/bihar3.jpg"
+
+//Andaman
+
+import Andaman1 from "../Andaman/pic/360_F_397037457_aQaV8mq4VieHtt6OVdLMZw6StZeKSLtt.jpg"
+import Andaman2 from "../Andaman/pic/andaman-nicobar-island-1.jpg"
+import Andaman3 from "../Andaman/pic/andaman-nicobar-island-2.jpg"
 
 //jharkhand
 import khand from "../images/khand.jpg"
@@ -142,250 +156,406 @@ import { Autoplay } from "swiper";
 import ScrollAd from './ScrollAd/ScrollAd';
 import Musicpage from './music/Musicpage';
 import { FaFacebook, FaFacebookSquare, FaInstagramSquare, FaTwitterSquare, FaWhatsappSquare } from 'react-icons/fa';
+import axios from 'axios';
 
 const Home = () => {
+
+  useEffect(() => {
+    loadslider();
+  }, [])
+  const [images, setImages] = useState();
+  console.log(images);
+  const loadslider = async () => {
+
+    const { data } = await axios.post(`http://137.184.22.70:3008/slider/getAll`,
+    )
+    console.log(data.status, "jk");
+    if (data.status === true) {
+      console.log(data.data, "data")
+      setImages(data.data);
+    }
+    else {
+      console.log(data.message, "datahjbhkb")
+
+    }
+
+  };
+  //  const images = [pic01,pic03,pic04,pic05,pic06,pic07,pic08]
+  const settings = {
+    dots: false,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    autoplay: true,
+    autoplaySpeed: 2000,
+    cssEase: "linear"
+  };
+
+  const card = [
+    {
+      name: "Andhra:Trip",
+      price: "from 9,883 per adult",
+      image: [pics1, pics2, pics3],
+      link: 'andhra'
+    },
+    {
+      name: "Arunachal Pradesh:Trip",
+      price: "from 9,883 per adult",
+      image: [aru1, aru2, khand3],
+      link: 'arunachalPradesh'
+    },
+    {
+      name: "Assam:Trip",
+      price: "from 9,883 per adult",
+      image: [placeAssam, wildAssam, templeAssam, hillAssam]
+      ,
+      link: 'assam'
+    },
+    {
+      name: "Bihar:Trip",
+      price: "from 9,883 per adult",
+      image: [bihar1, bihar2, bihar3],
+      link: 'bihar'
+    },
+    {
+      name: "Chhattisgarh:Trip",
+      price: "from 9,883 per adult",
+      image: [chhattisgarh1, chhattisgarh2, chhattisgarh3]
+      ,
+      link: 'Chhattisgarh'
+    },
+    {
+      name: "Goa:Trip",
+      price: "from 9,883 per adult",
+      image: [goa1, goa2, goa3],
+      link: 'goa'
+    },
+    {
+      name: "Gujarat:Trip",
+      price: "from 9,883 per adult",
+      image: [placeAssam, wildAssam, templeAssam, hillAssam]
+      ,
+      link: 'Gujarat'
+    },
+    {
+      name: "Haryana:Trip",
+      price: "from 9,883 per adult",
+      image: [placeAssam, wildAssam, templeAssam, hillAssam]
+      ,
+      link: 'Haryana'
+    },
+
+    {
+      name: "Himachal Pradesh:Trip",
+      price: "from 9,883 per adult",
+      image: [placeAssam, wildAssam, templeAssam, hillAssam]
+      ,
+      link: 'Himachal'
+    },
+    {
+      name: "Jharkhand:Trip",
+      price: "from 9,883 per adult",
+      image: [khand, khand2, khand3],
+      link: 'jhharkhand'
+    },
   
- 
-   const images = [pic01,pic03,pic04,pic05,pic06,pic07,pic08]
-   const settings = {
-      dots: false,
-      infinite: true,
-      speed: 500,
-      slidesToShow: 1,
-      slidesToScroll: 1,
-      autoplay: true,
-      autoplaySpeed: 2000,
-      cssEase: "linear"
-    };
+    {
+      name: "Karnataka:Trip",
+      price: "from 9,883 per adult",
+      image: [kn1, kn2, kn3, kn4],
+      link: 'bangalore'
+    },
 
-  const card=[
-   {name:"Andhra:Trip",
-   price:"from 9,883 per adult",
-   image:[pics1,pics2,pics3],
-   link:'andhra'
-},
-{name:"Telangana:Trip",
-   price:"from 9,883 per adult",
-   image:[tel1,tel2,tel3],
-   link:'telangana'
-},
-    {name:"West Bengal:Trip",
-     price:"from 9,883 per adult",
-     image:[w2,w1,w3,w4],
-     link:'westBengal'
-  },
-  {name:"Assam:Trip",
-     price:"from 9,883 per adult",
-     image:[placeAssam,wildAssam,templeAssam,hillAssam]
-     ,
-     link:'assam'
-  },
-  {name:"Oddisa:Trip",
-     price:"from 9,883 per adult",
-     image:[odibeach,odihill,odiplace,oditemple],
-     link:'odisha'
-  },
-  {name:"Rajsthan:Trip",
-     price:"from 9,883 per adult",
-     image:[r1,r2,r3,r4],
-     link:'rajsthan'
-  },
-  {name:"Uttarakhand:Trip",
-     price:"from 9,883 per adult",
-     image:[ut1,ut2,ut3,ut4],
-     link:'uttarakhand'
-  },
-  {name:"Karnataka:Trip",
-     price:"from 9,883 per adult",
-     image:[kn1,kn2,kn3,kn4],
-     link:'bangalore'
-  },
  
-  {name:"Goa:Trip",
-     price:"from 9,883 per adult",
-     image:[goa1,goa2,goa3],
-     link:'goa'
-  },
-  {name:"Kerala:Trip",
-     price:"from 9,883 per adult",
-     image:[kera1,kera2,kera3],
-     link:'kerala'
-  },
-  {name:"MP:Trip",
-     price:"from 9,883 per adult",
-     image:[mp1,mp2,mp3],
-     link:'mP'
-  },
-  {name:"Maharastra:Trip",
-     price:"from 9,883 per adult",
-     image:[maha1,maha2,maha3],
-     link:'maharashtra'
-  },
-  {name:"Uttar Pradesh:Trip",
-     price:"from 9,883 per adult",
-     image:[asam,oddisa,andhra,charminar],
-     link:'uttar'
-  },
-  {name:"Jammu & Kasmir:Trip",
-  price:"from 9,883 per adult",
-  image:[asam,oddisa,andhra,charminar],
-  link:'jammu'
-},
-{name:"Tamil Nadu :Trip",
-price:"from 9,883 per adult",
-image:[tn1,tn2,tn3],
-link:'tamilNadu'
-},
-{name:"Sikkim:Trip",
-price:"from 9,883 per adult",
-image:[sik1,sik2,sik3],
-link:'sikkim'
-},
+    {
+      name: "Kerala:Trip",
+      price: "from 9,883 per adult",
+      image: [kera1, kera2, kera3],
+      link: 'kerala'
+    },
+    {
+      name: "Madhya Pradesh:Trip",
+      price: "from 9,883 per adult",
+      image: [mp1, mp2, mp3],
+      link: 'mP'
+    },
+    {
+      name: "Maharastra:Trip",
+      price: "from 9,883 per adult",
+      image: [maha1, maha2, maha3],
+      link: 'maharashtra'
+    },
+    {
+      name: "Manipur:Trip",
+      price: "from 9,883 per adult",
+      image: [mp1, mp2, mp3],
+      link: 'Manipur'
+    },
+    {
+      name: "Meghalaya:Trip",
+      price: "from 9,883 per adult",
+      image: [maha1, maha2, maha3],
+      link: 'Meghalaya'
+    },
+    {
+      name: "Mizoram:Trip",
+      price: "from 9,883 per adult",
+      image: [maha1, maha2, maha3],
+      link: 'Mizoram'
+    },
+    {
+      name: "nagaland:Trip",
+      price: "from 9,883 per adult",
+      image: [naga1, naga2, naga3],
+      link: 'Nagaland'
+    },
+    {
+      name: "Oddisa:Trip",
+      price: "from 9,883 per adult",
+      image: [odibeach, odihill, odiplace, oditemple],
+      link: 'odisha'
+    },
+    {
+      name: "Punjab:Trip",
+      price: "from 9,883 per adult",
+      image: [odibeach, odihill, odiplace, oditemple],
+      link: 'Punjab'
+    },
+    {
+      name: "Rajsthan:Trip",
+      price: "from 9,883 per adult",
+      image: [r1, r2, r3, r4],
+      link: 'rajsthan'
+    },
+    
+   
+    {
+      name: "Sikkim:Trip",
+      price: "from 9,883 per adult",
+      image: [sik1, sik2, sik3],
+      link: 'sikkim'
+    },
+    {
+      name: "Tamil Nadu :Trip",
+      price: "from 9,883 per adult",
+      image: [tn1, tn2, tn3],
+      link: 'tamilNadu'
+    },
+    {
+      name: "Telangana:Trip",
+      price: "from 9,883 per adult",
+      image: [tel1, tel2, tel3],
+      link: 'telangana'
+    },
+    {
+      name: "Tripura :Trip",
+      price: "from 9,883 per adult",
+      image: [tn1, tn2, tn3],
+      link: 'Tripura'
+    },
+    {
+      name: "Uttarakhand:Trip",
+      price: "from 9,883 per adult",
+      image: [ut1, ut2, ut3, ut4],
+      link: 'uttarakhand'
+    },
+   
+ 
+    {
+      name: "Uttar Pradesh:Trip",
+      price: "from 9,883 per adult",
+      image: [asam, oddisa, andhra, charminar],
+      link: 'uttar'
+    },
+    {
+      name: "West Bengal:Trip",
+      price: "from 9,883 per adult",
+      image: [w2, w1, w3, w4],
+      link: 'westBengal'
+    },
 
-{name:"Bihar:Trip",
-price:"from 9,883 per adult",
-image:[bihar1,bihar2,bihar3],
-link:'bihar'
-},
-{name:"Jharkhand:Trip",
-price:"from 9,883 per adult",
-image:[khand,khand2,khand3],
-link:'jhharkhand'
-},
-{name:"Arunachal Pradesh:Trip",
-price:"from 9,883 per adult",
-image:[aru1,aru2,khand3],
-link:'arunachalPradesh'
-},
-{name:"nagaland:Trip",
-price:"from 9,883 per adult",
-image:[naga1,naga2,naga3],
-link:'Nagaland'
-},
+
+    {
+      name: "Jammu & Kasmir:Trip",
+      price: "from 9,883 per adult",
+      image: [asam, oddisa, andhra, charminar],
+      link: 'jammu'
+    },
+   
+    {
+      name: "Dadra and Nagar Haveli and Daman & Diu.:Trip",
+      price: "from 9,883 per adult",
+      image: [asam, oddisa, andhra, charminar],
+      link: 'jammu'
+    },
+   
+    {
+      name: "Ladakh.:Trip",
+      price: "from 9,883 per adult",
+      image: [asam, oddisa, andhra, charminar],
+      link: 'Ladakh'
+    },
+   
+    {
+      name: "Chandigarh.:Trip",
+      price: "from 9,883 per adult",
+      image: [asam, oddisa, andhra, charminar],
+      link: 'Chandigarh'
+    },
+   
+    {
+      name: "Delhi.:Trip",
+      price: "from 9,883 per adult",
+      image: [asam, oddisa, andhra, charminar],
+      link: 'Delhi'
+    },
+   
+    {
+      name: "Puducherry.:Trip",
+      price: "from 9,883 per adult",
+      image: [asam, oddisa, andhra, charminar],
+      link: 'Puducherry'
+    },
+   
+    {
+      name: "Lakshadweep:Trip",
+      price: "from 9,883 per adult",
+      image: [asam, oddisa, andhra, charminar],
+      link: 'Lakshadweep'
+    },
+   
+    {
+      name: "Andaman and Nicobar Islands:Trip",
+      price: "from 9,883 per adult",
+      image: [Andaman1, Andaman2, Andaman3],
+      link: 'Andaman'
+    },
+   
 
   ]
 
   console.log(localStorage)
   const ScrollCarouselCard = ({ name, price, link, image }) => {
     return (
-        <div className={Styles.scontainer}>
-            <div className={Styles.scroll}>
-                 <Link to={link}>
-                <span>
-                    <Swiper  pagination={{
-          clickable: true,
-        }} navigation={true} modules={[Navigation,Pagination]} className={Styles.mys}>
+      <div className={Styles.scontainer}>
+        <div className={Styles.scroll}>
+          <Link to={link}>
+            <span>
+              <Swiper pagination={{
+                clickable: true,
+              }} navigation={true} modules={[Navigation, Pagination]} className={Styles.mys}>
 
-                        {image.map((image, index) => (
-                          <div className={Styles.cardimg}>
-                          <SwiperSlide>
-                                <img key={index} src={image} alt={`Image ${index + 1}`} className={Styles.imgs} />
-                            </SwiperSlide>
-                          </div>
-                           
-
-                        ))}
-
-                    </Swiper>
+                {image.map((image, index) => (
+                  <div className={Styles.cardimg}>
+                    <SwiperSlide>
+                      <img key={index} src={image} alt={`Image ${index + 1}`} className={Styles.imgs} />
+                    </SwiperSlide>
+                  </div>
 
 
-                </span>
-                <div className={Styles.textContainer}>
-        <div className={Styles.carouselTextName}>
-          <h2>{name}</h2>
-        </div>
-        <div className={Styles.carouselTextPrice}>
-          <p>{price}</p>
+                ))}
+
+              </Swiper>
+
+
+            </span>
+            <div className={Styles.textContainer}>
+              <div className={Styles.carouselTextName}>
+                <h2>{name}</h2>
+              </div>
+              <div className={Styles.carouselTextPrice}>
+                <p>{price}</p>
+              </div>
+            </div>
+
+          </Link>
+
         </div>
       </div>
-               
-</Link>
-
-            </div>
-        </div>
     )
-}
+  }
 
-const searchQuery = useSelector((state) => state.searchQuery);
-const [filteredCards, setFilteredCards] = useState([]);
+  const searchQuery = useSelector((state) => state.searchQuery);
+  const [filteredCards, setFilteredCards] = useState([]);
 
-useEffect(() => {
-  const filtered = card.filter((card) =>
-    card.name.toLowerCase().includes(searchQuery.toLowerCase())
-  );
-  setFilteredCards(filtered);
-}, [searchQuery]);
+  useEffect(() => {
+    const filtered = card.filter((card) =>
+      card.name.toLowerCase().includes(searchQuery.toLowerCase())
+    );
+    setFilteredCards(filtered);
+  }, [searchQuery]);
 
-// i18n.use(initReactI18next).init({
-//   resources: {
-//     en: { translation: enTranslation },
-//     hi: { translation: hiTranslation }
-//   },
-//   fallbackLng: 'en',
-//   interpolation: {
-//     escapeValue: false
-//   }
-// });
+  // i18n.use(initReactI18next).init({
+  //   resources: {
+  //     en: { translation: enTranslation },
+  //     hi: { translation: hiTranslation }
+  //   },
+  //   fallbackLng: 'en',
+  //   interpolation: {
+  //     escapeValue: false
+  //   }
+  // });
 
 
-// const { t } = useTranslation();
+  // const { t } = useTranslation();
 
-//   const changeLanguage = (lng) => {
-//     i18n.changeLanguage(lng);
-//   };
+  //   const changeLanguage = (lng) => {
+  //     i18n.changeLanguage(lng);
+  //   };
 
 
 
 
   return (
-    <>    
+    <>
       <div className={Styles.slide} >
-      <div
-        style={{
-          position: 'absolute',
-          top: -120,
-          left: 0,
-          right:0,
-          width: '120%',
-          height: '120%',
-          overflow: 'hidden',
-          zIndex: -1, // Set a negative z-index to place it at the background
-        }}
-      >
-        <Slider {...settings}>             
-          {images.map((image) => (
-            <div key={image} style={{ height: '560px',width:'90%' }}>
-              <img
-                src={image}
-                alt="Image 1"
-                style={{
-                  width: '100%',
-                  height: '100%',
-                  objectFit: 'cover',
-                  margin:'auto'
-                }}
-              />
-            </div>
-          ))}
-        </Slider>
+        <div
+          style={{
+            position: 'absolute',
+            top: -120,
+            left: 0,
+            right: 0,
+            width: '120%',
+            height: '120%',
+            overflow: 'hidden',
+            zIndex: -1, // Set a negative z-index to place it at the background
+          }}
+        >
+          <Slider {...settings}>
+            {images && images.map((image) => (
+              <div key={image._id} style={{ height: '560px', width: '90%' }}>
+                <img
+                  src={`http://137.184.22.70:3008/slider/${image.image_url}`}
+                  alt="Image 1"
+                  style={{
+                    width: '100%',
+                    height: '100%',
+                    objectFit: 'cover',
+                    margin: 'auto'
+                  }}
+                />
+              </div>
+            ))}
+          </Slider>
+        </div>
       </div>
-    </div>
-
-      
-<div className={Styles.hides}>
-<ScrollAd/>
-</div>
-
-<div className={Styles.socialIcons}>
-<a href='http://www.facebook.com/Shivila-Technologies-Private-Limited-103738392217809'><FaFacebookSquare style={{color:'blue'}} /></a>
-<a href='https://www.instagram.com/shivilatechnologies/' style={{textDecoration:'none'}}><FaInstagramSquare className={Styles.myInsta}  /></a>
-<a href='https://www.twitter.com/ShivilaIn'><FaTwitterSquare style={{color:'blue'}} /></a>
-<a href='https://api.whatsapp.com/send/?phone=8335935735&text=Hi&app_absent=0'><FaWhatsappSquare style={{color:'green'}} /></a>
-</div>
 
 
+      <div className={Styles.hides}>
+        <ScrollAd name='home' />
+      </div>
 
-{/* 
+      <div className={Styles.socialIcons}>
+        <a href='https://www.facebook.com/people/Journey-Recall-India/61550265616986/?sk=about'><FaFacebookSquare style={{ color: 'blue' }} /></a>
+        <a href='https://www.instagram.com/rjoindia/?next=%2F' style={{ textDecoration: 'none' }}><FaInstagramSquare className={Styles.myInsta} /></a>
+        <a href='https://twitter.com/JROindia'><FaTwitterSquare style={{ color: 'blue' }} /></a>
+        <a href='https://api.whatsapp.com/send/?phone=070935 81569&text=Hi&app_absent=0'><FaWhatsappSquare style={{ color: 'green' }} /></a>
+      </div>
+
+
+
+      {/* 
 <div>
       <button onClick={() => changeLanguage('en')}>English</button>
       <button onClick={() => changeLanguage('hi')}>Hindi</button>
@@ -397,18 +567,18 @@ useEffect(() => {
 
 
       <div>
-                <div className='scrollHeading3'>
-                  
-                </div>
-                <div id='scroll3BtnDiv' >
-                    {/* <span id='scroll3Btn'>Sell More <FaLongArrowAltRight id='arrowicon'/></span> */}
-                </div>
-                <div className={Styles.lastcard}>
-                {filteredCards.map((card) => (
-        <ScrollCarouselCard key={card.name} {...card} />
-      ))}
-                </div>
-            </div>
+        <div className='scrollHeading3'>
+
+        </div>
+        <div id='scroll3BtnDiv' >
+          {/* <span id='scroll3Btn'>Sell More <FaLongArrowAltRight id='arrowicon'/></span> */}
+        </div>
+        <div className={Styles.lastcard}>
+          {filteredCards.map((card) => (
+            <ScrollCarouselCard key={card.name} {...card} />
+          ))}
+        </div>
+      </div>
 
 
 
@@ -416,28 +586,28 @@ useEffect(() => {
 
 
 
-    <div className={Styles.container}>
-    
-      
+      <div className={Styles.container}>
 
-         <br/>
-         <div className={Styles.list}>
-           <div className={Styles.lefta}>
+
+
+        <br />
+        <div className={Styles.list}>
+          <div className={Styles.lefta}>
             <div className={Styles.text}>
-                <h3>Get out there</h3>
-                <p>Best of the tours, attractions & activities you won't to miss.</p>
-                <button>See the list</button>
+              <h3>Get out there</h3>
+              <p>Best of the tours, attractions & activities you won't to miss.</p>
+              <button>See the list</button>
             </div>
-           </div>
-           <div>
-            <img width="100%" height='100%' src={list}/>
-           </div>
-         </div>
-    </div>
+          </div>
+          <div>
+            <img width="100%" height='100%' src={list} />
+          </div>
+        </div>
+      </div>
 
 
 
-  
+
     </>
   )
 }

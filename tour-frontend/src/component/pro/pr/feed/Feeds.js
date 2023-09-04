@@ -27,7 +27,7 @@ const Feeds = () => {
   }, [])
   return (
     <>
-      <div className={Styles.slidem} style={{ position: 'relative', zIndex: -1 }}>
+      <div className={Styles.slidem} style={{ position: 'relative', zIndex: -1 , height : "fit-content" }}>
         <Swiper
           slidesPerView={1}
           spaceBetween={30}

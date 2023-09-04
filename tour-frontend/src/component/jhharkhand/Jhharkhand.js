@@ -59,8 +59,8 @@ const Jhharkhand = () => {
   <div className={Styles.main}>
   <div className={Styles.text}><h1  >Adventure Tourism in Jharkhand .</h1></div>
 
-  <div className={Styles.slidem}> 
-  <Swiper style={{position:'relative',zIndex:-1}}
+  <div className={Styles.slidem} style={{ position: 'relative', zIndex: -1 , height : "fit-content" }}> 
+  <Swiper style={{position:'relative',zIndex:-1 ,height : "fit-content"}}
         slidesPerView={1}
         spaceBetween={30}
         loop={true}
@@ -111,7 +111,7 @@ const Jhharkhand = () => {
       <hr/>
     </div>
 
-
+          <br /><br />
 
     <br/>
       <br/>
@@ -142,15 +142,16 @@ const Jhharkhand = () => {
       <br/>
       <br/>
       <div className={Styles.ad}>
+      <div>
+        <img  height="100%" width="100%"  src='https://www.transindiatravels.com/wp-content/uploads/jamshedpur.jpg'/>
+       </div>
        <div>
        <h3>Jamshedpur Tourism</h3>
        <div className={Styles.textt}>
         <p>Jamshedpur owns the pride of being home to Tata Steel, the first private iron and steel company in the country. With many industries, both small and large scale, flourishing here, it is indeed a surprise to see that the city has rich greenery and is environment friendly. Here are the leading attractions in Jamshedpur.</p>
        </div>
        </div>
-       <div>
-        <img  height="100%" width="100%"  src='https://www.transindiatravels.com/wp-content/uploads/jamshedpur.jpg'/>
-       </div>
+       
       </div>
 
 
@@ -180,15 +181,16 @@ const Jhharkhand = () => {
       <br/>
       <br/>
       <div className={Styles.ad}>
+      <div>
+        <img height="100%" width="100%" src='https://www.transindiatravels.com/wp-content/uploads/hazaribagh.jpg'/>
+       </div>
        <div>
    <h3>  Hazaribagh</h3>
        <div className={Styles.textt}>
         <p>Hazaribagh, as its name suggests, is a land of flora and fauna. The name Hazaribagh means a thousand gardens and the city lives up to its name. Situated at an altitude of 2019 feet above sea level, the city is a well known health resort. Here are some top destinations in Hazaribagh.</p>
        </div>
        </div>
-       <div>
-        <img height="100%" width="100%" src='https://www.transindiatravels.com/wp-content/uploads/hazaribagh.jpg'/>
-       </div>
+       
       </div>
 
       <br/>
@@ -216,15 +218,16 @@ const Jhharkhand = () => {
       <br/>
       <br/>
       <div className={Styles.ad}>
+      <div>
+       <img height="100%" width="100%"  src='https://www.transindiatravels.com/wp-content/uploads/bokaro.jpg'/>
+       </div>
        <div>
        Bokaro Tourism
        <div className={Styles.textt}>
         <p>Bokaro is famous for its steel and coal industries. The natural resources available here has turned the city into a leading industrial hub. It is however not all industries as it has its share of lush greenery too. Here are some top tourist spots in Bokaro.</p>
        </div>
        </div>
-       <div>
-       <img height="100%" width="100%"  src='https://www.transindiatravels.com/wp-content/uploads/bokaro.jpg'/>
-       </div>
+       
       </div>
 
       <br/>

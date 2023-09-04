@@ -32,7 +32,10 @@ const Sikkim = () => {
   return (
     <>
     
-
+<br />
+<div className='banner9'>
+        <p className='tourTitles'>Tourism to Sikkim</p>
+    </div>
     <Swiper style={{position:'relative',zIndex:-1}}
         slidesPerView={1}
         spaceBetween={30}
@@ -57,9 +60,7 @@ const Sikkim = () => {
   
       </Swiper>
     
-    <div className='banner9'>
-        <p className='tourTitles'>Tourism to Sikkim</p>
-    </div>
+    
     <div>
         <article class="SkmcatogaryDiv">
         Sikkim, state in India,is located in the northeastern part of the country, in the eastern Himalayas. It is one of the smallest states in India. Sikkim is bordered by the Tibet Autonomous Region of China to the north and northeast, by Bhutan to the southeast, by the Indian state of West Bengal to the south, and by Nepal to the west. The capital is Gangtok, in the southeastern part of the state
@@ -81,9 +82,9 @@ Long a sovereign political entity, Sikkim became a protectorate of India in 1950
         </div>
 
         <div className='SkmcatogaryDiv'>
+            <img src={pic004} alt="" className='skmimages'/>
             <p className='textWBCat'>Pass:Nathula Pass,Chumbi valley ,Yumthang Valley,Gurudongmar Valley.
          </p>
-            <img src={pic004} alt="" className='skmimages'/>
 
         </div>
 
@@ -93,10 +94,10 @@ Long a sovereign political entity, Sikkim became a protectorate of India in 1950
         </div>
 
         <div className='SkmcatogaryDiv'>
+            <img src={pic002} alt=""className='skmimages' />
             <p className='textWBCat'>
             Mountains: Mt. Kangchendzongha,Mt. Pandim and Mt. Sinialchu.
             </p>
-            <img src={pic002} alt=""className='skmimages' />
 
         </div>
 

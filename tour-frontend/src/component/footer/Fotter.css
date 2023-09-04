@@ -197,6 +197,11 @@ border-bottom: 3px dotted white;
         .lastFooterSuvv{
         border-bottom: 3px dotted white;
         }
+
+        .google_app img{
+          height: 90px;
+          width: 200px;
+        }
   }
 
 

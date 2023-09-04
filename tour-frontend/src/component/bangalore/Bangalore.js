@@ -21,7 +21,13 @@ import p9 from "../picc/p9.jpg"
 const Bangalore = () => {
   return (
     <>
-<div className={Styles.slidem} style={{position:'relative',zIndex:-1}}> 
+    <div className={Styles.container}>
+  <div className={Styles.main}>
+  <div className={Styles.text}><h1  >Adventure Tourism in Bangalore</h1></div>
+
+  </div>
+    </div>
+<div className={Styles.slidem} style={{ position: 'relative', zIndex: -1 , height : "fit-content" }}> 
 <Swiper style={{position:'relative',zIndex:-1}}
         slidesPerView={1}
         spaceBetween={30}
@@ -46,12 +52,7 @@ const Bangalore = () => {
   
       </Swiper>
       </div>
-    <div className={Styles.container}>
-  <div className={Styles.main}>
-  <div className={Styles.text}><h1  >Adventure Tourism in Bangalore</h1></div>
-
-  </div>
-    </div>
+    
     <br/>
     <br/>
     <div className={Styles.tour}>
@@ -107,15 +108,16 @@ Choose this exciting helicopter ride in Bangalore; feel the excitement as you ta
       <br/>
       <br/>
       <div className={Styles.ad}>
+      <div>
+        <img  height="100%" width="100%"  src='https://res.cloudinary.com/thrillophilia/image/upload/c_fill,f_auto,fl_progressive.strip_profile,g_auto,h_600,q_auto,w_auto/v1/filestore/5crjjq0upgsnpwnophfgru5ac0ag_shutterstock_107043215.jpg'/>
+       </div>
        <div>
        <h3>Paragliding in Nandi Hills</h3>
        <div className={Styles.textt}>
         <p>Fly high in the sky with scenic valley views of Nandi Hills, Bangalore during the adventurous Paragliding activity. You get a chance to enjoy the 360-degree view from a height of 4000 feet above ground level. Feel like a carefree bird while you are assisted by trained professionals with all the safety gear and equipment.</p>
        </div>
        </div>
-       <div>
-        <img  height="100%" width="100%"  src='https://res.cloudinary.com/thrillophilia/image/upload/c_fill,f_auto,fl_progressive.strip_profile,g_auto,h_600,q_auto,w_auto/v1/filestore/5crjjq0upgsnpwnophfgru5ac0ag_shutterstock_107043215.jpg'/>
-       </div>
+       
       </div>
 
 
@@ -145,6 +147,9 @@ Choose this exciting helicopter ride in Bangalore; feel the excitement as you ta
       <br/>
       <br/>
       <div className={Styles.ad}>
+      <div>
+        <img height="100%" width="100%" src='https://res.cloudinary.com/thrillophilia/image/upload/c_fill,f_auto,fl_progressive.strip_profile,g_auto,h_600,q_auto,w_auto/v1/filestore/bzloqfpib57ubbriuk09ua11tzqi_1562758394_Bangalore_palace.jpg'/>
+       </div>
        <div>
    <h3>   Bangalore Palace Overview</h3>
        <div className={Styles.textt}>
@@ -153,9 +158,7 @@ Choose this exciting helicopter ride in Bangalore; feel the excitement as you ta
 The colossal Palace boasts of massive courtyards, bright interiors, kingly grounds, splendid spiral staircases, stately towers and a luscious garden in a proud display of posh regality.</p>
        </div>
        </div>
-       <div>
-        <img height="100%" width="100%" src='https://res.cloudinary.com/thrillophilia/image/upload/c_fill,f_auto,fl_progressive.strip_profile,g_auto,h_600,q_auto,w_auto/v1/filestore/bzloqfpib57ubbriuk09ua11tzqi_1562758394_Bangalore_palace.jpg'/>
-       </div>
+       
       </div>
 
       <br/>
@@ -183,15 +186,16 @@ The colossal Palace boasts of massive courtyards, bright interiors, kingly groun
       <br/>
       <br/>
       <div className={Styles.ad}>
+      <div>
+       <img height="100%" width="100%"  src='https://res.cloudinary.com/thrillophilia/image/upload/c_fill,f_auto,fl_progressive.strip_profile,g_auto,h_600,q_auto,w_auto/v1/filestore/60zv3p7hoj9ihglp7igcbaha2zi0_1575010669_shutterstock_652879903.jpg'/>
+       </div>
        <div>
        Nandi Hills
        <div className={Styles.textt}>
         <p>Nandi Hills, a small albeit beautiful town, is just 60 km away from the city of Bangalore and has emerged as the perfect weekend getaway for its people. Even though it is most well-known for its viewpoints and its greenery, Nandi Hills is also a popular historical fortress that is home to a number of temples, monuments and shrines.</p>
        </div>
        </div>
-       <div>
-       <img height="100%" width="100%"  src='https://res.cloudinary.com/thrillophilia/image/upload/c_fill,f_auto,fl_progressive.strip_profile,g_auto,h_600,q_auto,w_auto/v1/filestore/60zv3p7hoj9ihglp7igcbaha2zi0_1575010669_shutterstock_652879903.jpg'/>
-       </div>
+      
       </div>
 
       <br/>

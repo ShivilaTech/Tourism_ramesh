@@ -7,8 +7,10 @@ import wb3 from '../images/wb3.jpg';
 import wb4 from '../images/wb4.jpg';
 import wbtemple from '../images/wbtemple.webp';
 
+import { Link } from 'react-router-dom';
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
+
 import "swiper/css/pagination";
 import "swiper/css/navigation";
 import { Autoplay } from "swiper";
@@ -28,6 +30,10 @@ import p9 from "../picc/p9.jpg"
 const WestBengal = () => {
   return (
     <>
+    <br />
+    <div className='banner1'>
+        <p className='tourTitles'>Tourism to West Bengal</p>
+    </div>
     
     <Swiper style={{position:'relative',zIndex:-1}}
         slidesPerView={1}
@@ -52,12 +58,11 @@ const WestBengal = () => {
         <SwiperSlide><img src={p9} className='carouselImg' /></SwiperSlide>
   
       </Swiper>
-    
-    <div className='banner1'>
-        <p className='tourTitles'>Tourism to West Bengal</p>
-    </div>
+
+            <br /> 
+
     <div>
-        <article class="wbnewspaper">
+        <article class="wbnewspaper" style={{color : "black"}}>
         Located in the eastern part of India, West Bengal is a land of myriad attractions. The state is adorned with picturesque hill stations, beaches, mangroves, wildlife sanctuaries, waterfalls, islands, lakes, and rivers. The iconic monuments, ancient places of worship, imposing bridges, museums, palaces, bustling markets, and flavorful street food make the state a traveler’s paradise.
 
         West Bengal marks a huge inflow of domestic and international tourists every year. According to the Department of Tourism, Government of India, more than 71 million tourists visited the state in 2018. It has many heritage and premium hotels, cottages, home-stays, and hostels for tourist to unwind and enjoy their tour.
@@ -80,30 +85,30 @@ const WestBengal = () => {
         <p className='catogoryTitle'>Popular area to visit in West Bengal</p>
         
         <div className='wbcatogaryDiv'>
-            <img src={wb1} alt="" className='Wbimages'/>
+        <Link to='/commentAndhra/Beaches'> <img src={wb1} alt="" className='Wbimages'/></Link>
             <p className='textWBCat'>Beaches: Digha, Mandarmani, Bakkhali, Shankarpur, Tajpur, Udaipur, Frazerganj, Sagar</p>
         </div>
 
         <div className='wbcatogaryDiv'>
+        <Link to='/commentAndhra/Temples'> <img src={wbtemple} alt="" className='Wbimages'/></Link>
             <p className='textWBCat'>Temples: Dakshineshwar Temple, Kalighat Temple, Ramakrishna Belur Math, Mayapur ISKCON Temple, Hangseswari Temple, Rampara Kalibari Temple</p>
-            <img src={wbtemple} alt="" className='Wbimages'/>
 
         </div>
 
         <div className='wbcatogaryDiv'>
-        <img src={wb2} alt="" className='Wbimages' />
+        <Link to='/commentAndhra/Museums'><img src={wb2} alt="" className='Wbimages' /></Link>
             <p className='textWBCat'> Museums: Victoria Memorial, Indian Museum, Mother’s Wax Museum, Tram Museum, Netaji Bhawan, Jorasanko Thakur Bari</p>
         </div>
 
         <div className='wbcatogaryDiv'>
+        <Link to='/commentAndhra/Forts'><img src={wb3} alt="" className='Wbimages'/></Link>
             <p className='textWBCat'>Forts: Fort William, Buxa Fort, Kurumbera Fort, Fort Radisson, Fort Mornington
             </p>
-            <img src={wb3} alt="" className='Wbimages'/>
 
         </div>
 
         <div className='wbcatogaryDiv'>
-        <img src={wb4} alt=""className='Wbimages' />
+        <Link to='/commentAndhra/Palaces'><img src={wb4} alt=""className='Wbimages' /></Link>
             <p className='textWBCat'>
             Palaces: Marble Palace, Hazarduari Palace, Cooch Behar Palace, Jhargram Palace, Nashipur Rajbari, Shobhabazar Rajbari, Bawali Rajbari
             </p>

@@ -1,7 +1,9 @@
 body {
   background-color: white; /* Set the background color of the body to black */
   background: rgb(63,215,251);
-  background-image: linear-gradient(to right top, #cd0f7b, #e63d5a, #ea6c3f, #df9633, #cabc46, #bbca50, #a7d860, #8fe576, #7de46b, #67e260, #4ce156, #1bdf4c);
+  /* background-image: url('../bg.jfif');
+  background-size: cover ;
+  filter: blur(10px); */
 }
 
 .App {
@@ -14,7 +16,11 @@ body {
   position: relative; /* Add position relative to create a stacking context */
   z-index: 1; /* Set a positive z-index to place it above the black background */
   overflow: hidden; /* Add overflow property to hide overflowing content */
-  background-image: linear-gradient(to right top, #cd0f7b, #e63d5a, #ea6c3f, #df9633, #cabc46, #bbca50, #a7d860, #8fe576, #7de46b, #67e260, #4ce156, #1bdf4c);
+  /* backdrop-filter: blur(5px);  */
+  background-image: url('../bg2.jfif');
+  background-size: cover ;
+  /* filter: blur(10px); */
+  background-color: rgba(255, 255, 255, 0.5);
 }
 
 @media (min-width: 1600px) {

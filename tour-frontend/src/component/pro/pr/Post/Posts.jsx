@@ -16,7 +16,7 @@ const Posts = ({ posts }) => {
   const handleDeletePost = async (postId) => {
     try {
       console.log(postId);
-      const response = await axios.delete(`https://travel-d57k.onrender.com/user/post/delete/${postId}`);
+      const response = await axios.delete(`http://137.184.22.70:3008/user/post/delete/${postId}`);
       console.log(response.data);
       if (response.data.status == true) {
         window.alert(response.data.message);
@@ -33,7 +33,7 @@ const Posts = ({ posts }) => {
       <div className="post-container">
         {posts.map((post) => (
           <div key={post._id} className="card">
-            <img src={`https://travel-d57k.onrender.com/posts/${post.postUrl}`} alt={post.caption} />
+            <img src={`http://137.184.22.70:3008/posts/${post.postUrl}`} alt={post.caption} />
             <h2>{post.caption}</h2>
             <button onClick={() => handleEditPost(post._id)}>Edit</button>
             <button onClick={() => handleDeletePost(post._id)}>Delete</button>
@@ -51,29 +51,29 @@ export default Posts;
 
 
 ///////////////----------before 3june----------///////////////////////////////
-// http://35.78.201.111:3008/profile_images/profile_image_1685380245019_CSS%20DEMO1.png
+// http://137.184.22.70:3008/profile_images/profile_image_1685380245019_CSS%20DEMO1.png
 // PROFILE PHOTO
 // -----------------------------------------------------------------
 // mahesh mhaske3:13 PM
-// http://35.78.201.111:3008/posts/profile_image_1685380245019_CSS%20DEMO1.png
+// http://137.184.22.70:3008/posts/profile_image_1685380245019_CSS%20DEMO1.png
 
 // post
-// http://35.78.201.111:3008/posts
+// http://137.184.22.70:3008/posts
 // mahesh mhaske3:19 PM
-// http://35.78.201.111:3008/profile_images/
+// http://137.184.22.70:3008/profile_images/
 
 
 
 
 
 ///////////////----------3june----------///////////////////////////////
-// https://travel-d57k.onrender.com/profile_images/profile_image_1685380245019_CSS%20DEMO1.png
+// http://137.184.22.70:3008/profile_images/profile_image_1685380245019_CSS%20DEMO1.png
 // PROFILE PHOTO
 // -----------------------------------------------------------------
 // mahesh mhaske3:13 PM
-// https://travel-d57k.onrender.com/posts/profile_image_1685380245019_CSS%20DEMO1.png
+// http://137.184.22.70:3008/posts/profile_image_1685380245019_CSS%20DEMO1.png
 
 // post
-// https://travel-d57k.onrender.com/posts
+// http://137.184.22.70:3008/posts
 // mahesh mhaske3:19 PM
-// https://travel-d57k.onrender.com/profile_images/
+// http://137.184.22.70:3008/profile_images/

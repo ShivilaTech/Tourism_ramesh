@@ -27,6 +27,10 @@ import hillAssam from '../images/hillAssam.webp';
 const Assam = () => {
   return (
     < >
+    <br />
+    <div className='banner3'>
+        <p className='tourTitles'>Tourism to Assam</p>
+    </div>
 
 <Swiper  style={{position:'relative',zIndex:-1}}
         slidesPerView={1}
@@ -53,9 +57,7 @@ const Assam = () => {
       </Swiper>
     
     
-    <div className='banner3'>
-        <p className='tourTitles'>Tourism to Assam</p>
-    </div>
+   
     <div>
         <article class="assnewspaper">
           
@@ -83,22 +85,22 @@ Hoollongapar Gibbon Sanctuary,Deepor Beel Bird Sanctuary  </p>
         </div>
 
         <div className='asscatogaryDiv'>
+            <img src={templeAssam} alt="" className='assimages'/>
             <p className='textWBCat'>Temples:  Asvakranta temple,Devi Dol temple,Kedareswar temple,Dab Parbatia temple,Navagraha temple etc
             </p>
-            <img src={templeAssam} alt="" className='assimages'/>
 
         </div>
 
         <div className='asscatogaryDiv'>
         <img src={hillAssam} alt="" className='assimages' />
-            <p className='textWBCat'> Hill Stations:Haflong ,Diphu,Umrangso,Maibang,Dispur ,Sualkuchi,Lilabari,Morigaon,Bongaigaon,Karimganj  </p>
+            <p className='textWBCat'> Hill Stations:Haflong , Diphu, Umrangso, Maibang, Dispur , Sualkuchi, Lilabari, Morigaon, Bongaigaon, Karimganj  </p>
         </div>
 
         <div className='asscatogaryDiv'>
-            <p className='textWBCat'>
-            Palaces:Rang Ghar,Talatal Ghar
-            </p>
             <img src={placeAssam} alt=""className='assimages' />
+            <p className='textWBCat'>
+            Palaces:Rang Ghar, Talatal Ghar
+            </p>
 
         </div>
     </div>
